@@ -8,7 +8,7 @@ const User = require('../models/user') // va chercher le modele de données pour
 
 
 authRouter.post("/connexion", passport.authenticate("local", {
-  successRedirect: "/private",
+  successRedirect: "/categorie",
   failureRedirect: "/connexion",
   failureFlash: true,
   passReqToCallback: true
@@ -20,24 +20,9 @@ authRouter.get('/profil', ensureLogin.ensureLoggedIn(),(req, res, next) => {
 });
 
 
-authRouter.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("private", { user: req.user });
-  //console.log("hello", req.user);
-});
 //page Catégorie.
 authRouter.get('/categorie', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 res.render('categorie');
 });
-
-//page Catégorie.
-authRouter.get('/categorie', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-res.render('categorie');
-});
-
-//page Catégorie.
-authRouter.get('/categorie', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-res.render('categorie');
-});
-
 
 module.exports=authRouter;
