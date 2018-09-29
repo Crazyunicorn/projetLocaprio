@@ -12,7 +12,8 @@ const session      = require("express-session");
 const bcrypt       = require("bcrypt");
 const passport     = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-
+const flash = require("connect-flash");
+const User = require('./models/user');
 
 mongoose
   .connect('mongodb://localhost/locaprio', {useNewUrlParser: true})
@@ -55,16 +56,19 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
-passport.use(new LocalStrategy((username, password, next) => {
-  User.findOne({ username }, (err, user) => {
+passport.use(new LocalStrategy((email, password, next) => {
+  console.log('hello0')
+  User.findOne({ email }, (err, user) => {
+    console.log('hello1', user)
     if (err) {
       return next(err);
     }
     if (!user) {
-      return next(null, false, { message: "Incorrect username" });
+      return next(null, false, { message: "Mauvais utilisateur" });
     }
     if (!bcrypt.compareSync(password, user.password)) {
-      return next(null, false, { message: "Incorrect password" });
+      console.log('hello2')
+      return next(null, false, { message: "Mauvais mot de passe" });
     }
 
     return next(null, user);
@@ -73,15 +77,15 @@ passport.use(new LocalStrategy((username, password, next) => {
 
 
 
-// config express-session
+// alex config express-session
 
 app.use(session({
-  secret: "our-passport-local-strategy-app",
+  secret: "locaprio",
   resave: true,
   saveUninitialized: true
 }));
 
-// passport session
+// alex passport session
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -100,6 +104,9 @@ app.locals.title = 'locaprio - Agence immo en ligne';
 
 const index = require('./routes/index');
 app.use('/', index);
+const authRoutes = require('./routes/auth-routes');
+app.use('/', authRoutes);
+
 
 
 module.exports = app;

@@ -9,9 +9,6 @@ authRouter.get('/', (req, res, next) => {
   res.render('index');
 });
 
-authRouter.get('/connexion', (req, res, next) => {
-  res.render('connexion');
-});
 
 authRouter.get('/creacompte', (req, res, next) => { // prendre le cours au sujet de passport
   res.render('creacompte');
@@ -21,6 +18,12 @@ authRouter.get('/creacompte', (req, res, next) => { // prendre le cours au sujet
 authRouter.get('/profil', (req, res, next) => {
   res.render('profil');
 });
+
+//page Catégorie.
+authRouter.get('/categorie', (req, res, next) => {
+  res.render('categorie');
+});
+
 
 // création d'un user en bdd
 authRouter.post('/creacompte', (req, res, next) => {
@@ -33,8 +36,8 @@ authRouter.post('/creacompte', (req, res, next) => {
     return;
   }
 
-  myUser.findOne({ email }, "email", (err, email) => {
-    if (email !== null) {
+  myUser.findOne({ email }, "email", (err, user) => {
+    if (user !== null) {
       res.render("creacompte", { message: "Cette adresse email existe déjà !!!" });
       return;
     }
@@ -54,6 +57,7 @@ authRouter.post('/creacompte', (req, res, next) => {
     });
   });
 });
+
 
 
 

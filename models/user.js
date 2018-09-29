@@ -1,7 +1,7 @@
 //modèle nécéssaire pour le log in avec passpaort
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt"); //à verifié
 const bcryptSalt = 10;
 
 
