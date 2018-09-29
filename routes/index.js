@@ -14,14 +14,9 @@ authRouter.get('/creacompte', (req, res, next) => { // prendre le cours au sujet
   res.render('creacompte');
 });
 
-//page profil uniquement accessible pour un user ayant crée son compte.
-authRouter.get('/profil', (req, res, next) => {
-  res.render('profil');
-});
 
-//page Catégorie.
-authRouter.get('/categorie', (req, res, next) => {
-  res.render('categorie');
+authRouter.get('/connexion', (req, res, next) => {
+  res.render('connexion', { "message": req.flash("error") });
 });
 
 
@@ -58,8 +53,11 @@ authRouter.post('/creacompte', (req, res, next) => {
   });
 });
 
-
-
+// deconnexion
+authRouter.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("connexion");
+});
 
 
 

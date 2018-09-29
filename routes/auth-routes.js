@@ -5,22 +5,39 @@ const ensureLogin = require("connect-ensure-login");
 const User = require('../models/user') // va chercher le modele de données pour pouvoir les enregistrer en bdd
 
 
-authRouter.get('/connexion', (req, res, next) => {
-  res.render('connexion');
-});
+
 
 authRouter.post("/connexion", passport.authenticate("local", {
-  successRedirect: "/categorie",
+  successRedirect: "/private",
   failureRedirect: "/connexion",
   failureFlash: true,
   passReqToCallback: true
 }));
 
-authRouter.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("private", { user: req.user });
-  console.log("hello", req.user);
+//page profil uniquement accessible pour un user ayant crée son compte.
+authRouter.get('/profil', ensureLogin.ensureLoggedIn(),(req, res, next) => {
+  res.render('profil');
 });
 
+
+authRouter.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
+  res.render("private", { user: req.user });
+  //console.log("hello", req.user);
+});
+//page Catégorie.
+authRouter.get('/categorie', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+res.render('categorie');
+});
+
+//page Catégorie.
+authRouter.get('/categorie', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+res.render('categorie');
+});
+
+//page Catégorie.
+authRouter.get('/categorie', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+res.render('categorie');
+});
 
 
 module.exports=authRouter;

@@ -56,7 +56,9 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
+app.use(flash());
 passport.use(new LocalStrategy((email, password, next) => {
+  passReqToCallback: true
   console.log('hello0')
   User.findOne({ email }, (err, user) => {
     console.log('hello1', user)
