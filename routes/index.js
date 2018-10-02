@@ -62,20 +62,6 @@ authRouter.post('/creacompte', (req, res, next) => {
   });
 });
 
-// deconnexion
-authRouter.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("connexion");
-});
-
-
-
-
-
-
-
-
-
 
 module.exports=authRouter;
 

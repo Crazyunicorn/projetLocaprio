@@ -72,7 +72,7 @@ passport.use(new LocalStrategy((email, password, next) => {
       console.log('hello2')
       return next(null, false, { message: "Mauvais mot de passe" });
     }
-
+    app.locals.user = user;
     return next(null, user);
   });
 }));

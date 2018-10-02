@@ -25,10 +25,10 @@ authRouter.get('/profilpro', ensureLogin.ensureLoggedIn(),(req, res, next) => {
 });
 
 
-
-//page Catégorie.
-authRouter.get('/categorie', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-res.render('categorie');
+// deconnexion
+authRouter.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
 });
 
 module.exports=authRouter;
