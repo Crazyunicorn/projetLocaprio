@@ -8,36 +8,27 @@ const User = require('../models/user') // va chercher le modele de données pour
 
 
 authRouter.post("/connexion", passport.authenticate("local", {
-  successRedirect: "/private",
+  successRedirect: "/categorie",
   failureRedirect: "/connexion",
   failureFlash: true,
   passReqToCallback: true
 }));
 
-//page profil uniquement accessible pour un user ayant crée son compte.
-authRouter.get('/profil', ensureLogin.ensureLoggedIn(),(req, res, next) => {
-  res.render('profil');
+//page profil locataire uniquement accessible pour un user ayant crée son compte.
+authRouter.get('/profiloc', ensureLogin.ensureLoggedIn(),(req, res, next) => {
+  res.render('profiloc');
+});
+
+//page profil propriétaire uniquement accessible pour un user ayant crée son compte.
+authRouter.get('/profilpro', ensureLogin.ensureLoggedIn(),(req, res, next) => {
+  res.render('profilpro');
 });
 
 
-authRouter.get("/private", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("private", { user: req.user });
-  //console.log("hello", req.user);
-});
-//page Catégorie.
-authRouter.get('/categorie', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-res.render('categorie');
-});
 
 //page Catégorie.
 authRouter.get('/categorie', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 res.render('categorie');
 });
-
-//page Catégorie.
-authRouter.get('/categorie', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-res.render('categorie');
-});
-
 
 module.exports=authRouter;
