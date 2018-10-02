@@ -73,6 +73,7 @@ passport.use(new LocalStrategy((email, password, next) => {
       return next(null, false, { message: "Mauvais mot de passe" });
     }
     app.locals.user = user;
+    app.locals.isLocataire = user.role === "Locataire";
     return next(null, user);
   });
 }));
@@ -107,7 +108,7 @@ app.locals.title = 'locaprio - Agence immo en ligne';
 const index = require('./routes/index');
 app.use('/', index);
 const authRoutes = require('./routes/auth-routes');
-app.use('/', authRoutes);
+app.use('/', authRoutes(app));
 
 
 

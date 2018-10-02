@@ -28,10 +28,12 @@
           Menu
         </a>
 
-        {{#if user.role == "Locataire"}}
+
         <div class="navbar-dropdown">
+
+          {{#if isLocataire}}
           <a href="/profiloc"class="navbar-item">
-            Profil
+            Profil1
           </a>
 
 
@@ -39,11 +41,9 @@
 
 
           <a href="/profilpro" class="navbar-item">
-            Profil
+            Profil2
           </a>
-          <a href="/profilpro" class="navbar-item">
-            Logement(s)
-          </a>
+
 
           {{/if}}
 
