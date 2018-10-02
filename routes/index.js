@@ -19,6 +19,15 @@ authRouter.get('/connexion', (req, res, next) => {
   res.render('connexion', { "message": req.flash("error") });
 });
 
+//page Catégorie.
+authRouter.get('/categorie', (req, res, next) => {
+  res.render('categorie', { "message": req.flash("error") });
+});
+
+//création page description appart
+authRouter.get('/description', (req, res, next) => {
+  res.render('description', { "message": req.flash("error") });
+});
 
 // création d'un user en bdd
 authRouter.post('/creacompte', (req, res, next) => {

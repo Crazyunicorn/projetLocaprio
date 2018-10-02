@@ -14,10 +14,16 @@ authRouter.post("/connexion", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-//page profil uniquement accessible pour un user ayant crée son compte.
-authRouter.get('/profil', ensureLogin.ensureLoggedIn(),(req, res, next) => {
-  res.render('profil');
+//page profil locataire uniquement accessible pour un user ayant crée son compte.
+authRouter.get('/profiloc', ensureLogin.ensureLoggedIn(),(req, res, next) => {
+  res.render('profiloc');
 });
+
+//page profil propriétaire uniquement accessible pour un user ayant crée son compte.
+authRouter.get('/profilpro', ensureLogin.ensureLoggedIn(),(req, res, next) => {
+  res.render('profilpro');
+});
+
 
 
 //page Catégorie.
