@@ -1,0 +1,115 @@
+<section id="crea1">
+  <div class="panel">
+    <div class="panel-heading ">
+      <h1>Créer votre annonce</h1>
+    </div>
+    <div class="panel-block">
+      <div class="container">
+        <form class="" action="/creannonce" method="POST">
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Surface</label>
+                <div class="control">
+                  <input id="surface" class="input" type="text" placeholder="ex : 38m2" name="surface" >
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="field">
+                <label class="label">Disponibilités</label>
+                <div class="control">
+                  <input id="disponibilites" class="input" type="date" placeholder="ex : 2 mois" name="availability">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+             <div class="columns">
+            <div class="column">
+              <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                  <label class="label">numero de rue</label>
+                  <input class="input" type="text" placeholder="joli petit studio" name="number">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="field">
+                <p class="control has-icons-left">
+                  <label class="label">rue</label>
+                  <input class="input" type="text" placeholder="rue de Beaugrenelle" name="street">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+<div class="columns">
+            <div class="column">
+              <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                  <label class="label">code postal</label>
+                  <input class="input" type="text" placeholder="75018" name="zip_code">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="field">
+                <p class="control has-icons-left">
+                  <label class="label">Ville</label>
+                  <input class="input" type="text" placeholder="paris" name="city">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                  <label class="label">Description</label>
+                  <input class="textarea" type="text" placeholder="joli petit studio" name="description">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          
+          </div>
+
+          <br>
+          
+          <br>
+          <div class="field">
+            <p class="control">
+              <button class="button is-info is-large" type="submit">
+                Publier mon annonce
+              </button>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -48,7 +48,7 @@ authRouter.post('/creacompte', (req, res, next) => {
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
     const newUser = new myUser({
-      email, firstName, lastName, role, // pourquoi mon email est null en bdd
+      email, firstName, lastName, role, 
       password: hashPass
     });
     newUser.save((err) =>{

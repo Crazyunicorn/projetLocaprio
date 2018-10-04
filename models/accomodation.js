@@ -6,12 +6,10 @@ const bcryptSalt = 10;
 
 
 const appartSchema = new Schema ({
-  patron_id: //why?
   picture : String,
   picture_pro : String,
   surface : Number,
   availability : Date,
-  size : Number,
   description : String,
   adresse : {
     street : String,
@@ -22,4 +20,4 @@ const appartSchema = new Schema ({
 });
 
 const appart = mongoose.model('Appart', appartSchema);
-module.exports = appartSchema;
+module.exports = appart;

@@ -3,7 +3,7 @@ const router  = express.Router();
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 const User = require('../models/user') // va chercher le modele de données pour pouvoir les enregistrer en bdd
-
+const myAppart = require('../models/accomodation')
 
 
 let authRouter = function (app) {
@@ -54,6 +54,30 @@ User.findById(req.params.id)
     res.render('admin');
   });
 
+    //page cre annonce uniquement accessible pour un proprio ayant crée son compte.
+  router.get('/creannonce', ensureLogin.ensureLoggedIn("/connexion"),(req, res, next) => {
+    res.render('creannonce');
+  });
+  //création d'une annonce en bdd
+  router.post('/creannonce', (req, res, next) => {
+    console.log(req.body);
+    const { surface, availability, description, number, street, zip_code, city } = req.body; // ne pas oublier les paramères 'name="firstName"' dans les input des forms pour le req.body.
+    const newAnnonce = new myAppart({surface, availability: new Date(availability), description, number, street, zip_code, city}) // cour mongoose express create - update document + penser aux id dans les forms
+    if (surface === "" || availability==="" || description==="" || number === "" || street === "" || zip_code === "" || city === "") {
+      res.render("creannonce", { message: "Remplissez toutes les informations pour créer votre annonce" });
+      return;
+    };
+
+    newAnnonce.save((err) =>{
+
+      if (err) {
+        console.log("err save", err)
+        res.render("creannonce", {message: "big problem"});
+        return
+      }
+      res.redirect("categorie");
+    });
+  });
 
   // deconnexion
   router.get("/logout", (req, res) => {
@@ -64,5 +88,6 @@ User.findById(req.params.id)
   });
   return router;
 }
+
 
 module.exports=authRouter;
