@@ -6,17 +6,18 @@ const bcryptSalt = 10;
 
 
 const appartSchema = new Schema ({
-  patron_id:
-  picture : String;
-  surface : Number;
-  avaibility : Date;
-  size : Number;
-  description : String;
+  patron_id: //why?
+  picture : String,
+  picture_pro : String,
+  surface : Number,
+  availability : Date,
+  size : Number,
+  description : String,
   adresse : {
-    street : String;
-    number : Number;
-    zip_code : Number;
-    city : String;
+    street : String,
+    number : Number,
+    zip_code : Number,
+    city : String,
   }
 });
 
