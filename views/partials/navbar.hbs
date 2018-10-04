@@ -1,6 +1,6 @@
 <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
+    <a class="navbar-item" href="/">
       <h1>Locaprio</h1>
     </a>
 
@@ -31,13 +31,13 @@
 
         <div class="navbar-dropdown">
 
-          {{#if isLocataire}}
+        {{#if user.isLocataire}}
           <a href="/profiloc"class="navbar-item">
             Profil1
           </a>
 
 
-          {{else}}
+        {{else}}
 
 
           <a href="/profilpro" class="navbar-item">
@@ -45,7 +45,7 @@
           </a>
 
 
-          {{/if}}
+        {{/if}}
 
 
           <a href="/logout" class="navbar-item">

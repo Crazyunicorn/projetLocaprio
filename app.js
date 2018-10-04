@@ -79,7 +79,6 @@ passport.use(new LocalStrategy((email, password, next) => {
 }));
 
 
-
 // alex config express-session
 
 app.use(session({
@@ -108,7 +107,7 @@ app.locals.title = 'locaprio - Agence immo en ligne';
 const index = require('./routes/index');
 app.use('/', index);
 const authRoutes = require('./routes/auth-routes');
-app.use('/', authRoutes(app));
+app.use('/', authRoutes(app)); // ça permet de passer app en paramètre et de renvoyer le router mais je comprends pas, lol
 
 
 

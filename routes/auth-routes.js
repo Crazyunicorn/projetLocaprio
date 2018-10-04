@@ -15,13 +15,17 @@ let authRouter = function (app) {
   }));
 
   //page profil locataire uniquement accessible pour un user ayant crée son compte.
-  router.get('/profiloc', ensureLogin.ensureLoggedIn(),(req, res, next) => {
+  router.get('/profiloc', ensureLogin.ensureLoggedIn("/connexion"),(req, res, next) => {
     res.render('profiloc');
   });
 
   //page profil propriétaire uniquement accessible pour un user ayant crée son compte.
-  router.get('/profilpro', ensureLogin.ensureLoggedIn(),(req, res, next) => {
+  router.get('/profilpro', ensureLogin.ensureLoggedIn("/connexion"),(req, res, next) => {
     res.render('profilpro');
+  });
+
+  router.get('/admin', ensureLogin.ensureLoggedIn("/connexion"),(req, res, next) => {
+    res.render('admin');
   });
 
 

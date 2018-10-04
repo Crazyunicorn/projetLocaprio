@@ -11,14 +11,28 @@ const userSchema = new Schema({
   email : String,
   password : String,
   picture : String,
-  role : String
+  role:  {
+   type: String,
+   enum: ["Locataire", "Proprietaire", "Admin"],
+ }
+
 },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at"
   }
 });
 
+userSchema.virtual("isLocataire").get(function(){  //créé des schemas virtuels pour les rôles dans l'app
+  return this.role === "Locataire";
+})
 
+userSchema.virtual("isProprietaire").get(function(){
+  return this.role === "Proprietaire";
+})
+
+/*userSchema.virtual("isAdmin").get(function(){
+  return this.role === "Admin";
+})*/
 
 const users = mongoose.model('User', userSchema);
 module.exports = users;

@@ -55,8 +55,14 @@ authRouter.post('/creacompte', (req, res, next) => {
       if (err) {
         res.render("creacompte", {message: "big problem"});
       }
+      else if (this.role === "Locataire"){
+        res.redirect("profiloc");
+      }
+      else if (this.role === 'Proprietaire'){
+        res.redirect("profilpro");
+      }
       else {
-        res.redirect("profil");
+        res.redirect("admin")
       }
     });
   });
