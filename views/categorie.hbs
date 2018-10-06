@@ -3,10 +3,25 @@
 
 <div class="columns">
 
-  {{#each apparts}}
-    {{> card this}}
-  {{/each}}
+
+
+
+<table class="table">
+  <tbody>
+    {{#each apparts}}
+<tr>
+  <td>{{> card this}}</td>
+  <td></td>
+  <td></td>
+</tr>
+
+
+
+
+
+    {{/each}}
+
+  </tbody>
+</table>
 </div>
-
-
   </section>
