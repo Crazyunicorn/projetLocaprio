@@ -74,9 +74,8 @@ User.findById(req.params.id)
         'street' : street,
         'zip_code' : zip_code,
         'city' : city
-      },
+      }
     }) // cour mongoose express create - update document + penser aux id dans les forms
-
     if (surface === "" || availability==="" || description==="" || number === "" || street === "" || zip_code === "" || city === "") {
       res.render("creannonce", { message: "Remplissez toutes les informations pour créer votre annonce" });
       return;
