@@ -13,14 +13,14 @@
           </figure>
         </div>
         <div class="media-content">
-          <p class="title is-5">Julien Fabre</p>
+          <p class="title is-5">{{user.firstName}} {{user.lastName}}</p> 
         </div>
       </div>
 <p>
       <div class="contenta">
         <ul>
-          <li>PARIS 18E</li>
-          <li>Studio au pied de Montmartre 600€ - 33m2</li>
+          <li>{{adresse.city}} {{adresse.zip_code}}</li>
+          <li>{{description}} - {{surface}}</li>
           <br>
           <li><div class="transport"><img  src="/images/transport.png" alt="Placeholder image">
 </div> Abbesses</li>
@@ -31,6 +31,9 @@
              
 </p>
       </div>
-    </div>
+  </div>
   </div>
 </div>
+
+ 
+  
