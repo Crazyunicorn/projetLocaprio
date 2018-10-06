@@ -1,37 +1,34 @@
-<div class="column is-one-third">
-  <div class="card">
-    <div class="card-image">
-      <figure class="image is-4by3">
-        <img src="/images/apartment.png" alt="Placeholder image">
-      </figure>
-    </div>
-    <div class="card-content">
-      <div class="media">
-        <div class="media-left">
-          <figure class="image is-48x48">
-            <img src="/images/juliensmall.jpg" alt="Placeholder image">
-          </figure>
-        </div>
-        <div class="media-content">
-          <p class="title is-5">{{user.firstName}} {{user.lastName}}</p>
+<div class="columns">
+  <div class="column">
+    <a href="/description/:id">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="/images/apartment.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="/images/juliensmall.jpg" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-5">{{user.firstName}} {{user.lastName}}</p>
+          </div>
         </div>
       </div>
-<p>
       <div class="contenta">
         <ul>
           <li>{{adresse.city}} {{adresse.zip_code}}</li>
           <li>{{description}} - {{surface}}m2 - {{prix}}€</li>
           <br>
-          <li><div class="transport"><img  src="/images/transport.png" alt="Placeholder image">
-</div> Abbesses</li>
-</br>
-</ul>
-
-
-
-</p>
-      </div>
+          <li class="transport"><img  src="/images/transport.png" alt="Placeholder image"> Abbesses</li>
+      </ul>
   </div>
-  </div>
+  </div> 
+  </a>
 </div>
 </div>
+
