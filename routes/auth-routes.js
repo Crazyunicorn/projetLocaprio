@@ -15,7 +15,7 @@ let authRouter = function (app) {
   }));
 
   //go get datas for profile proprio
-  router.get("/profilpro/:id", (req, res, next) => {
+router.get("/profilpro/:id", (req, res, next) => {
 User.findById(req.params.id)
 .then(proprio=>{
   console.log(proprio)
@@ -37,8 +37,8 @@ User.findById(req.params.id)
         console.log(error)
       })
         });
-        
-  
+
+
 
   //page profil locataire uniquement accessible pour un user ayant crée son compte.
   router.get('/profiloc', ensureLogin.ensureLoggedIn("/connexion"),(req, res, next) => {
@@ -62,7 +62,17 @@ User.findById(req.params.id)
   router.post('/creannonce', (req, res, next) => {
     console.log(req.body);
     const { surface, availability, description, number, street, zip_code, city } = req.body; // ne pas oublier les paramères 'name="firstName"' dans les input des forms pour le req.body.
-    const newAnnonce = new myAppart({surface, availability: new Date(availability), description, number, street, zip_code, city}) // cour mongoose express create - update document + penser aux id dans les forms
+    const newAnnonce = new myAppart({
+      'surface' : surface,
+      availability: new Date(availability),
+      description,
+      adresse: {
+        'number': number,
+        'street' : street,
+        'zip_code' : zip_code,
+        'city' : city
+      },
+    }) // cour mongoose express create - update document + penser aux id dans les forms
     if (surface === "" || availability==="" || description==="" || number === "" || street === "" || zip_code === "" || city === "") {
       res.render("creannonce", { message: "Remplissez toutes les informations pour créer votre annonce" });
       return;

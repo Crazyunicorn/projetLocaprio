@@ -48,7 +48,7 @@ authRouter.post('/creacompte', (req, res, next) => {
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
     const newUser = new myUser({
-      email, firstName, lastName, role, 
+      email, firstName, lastName, role,
       password: hashPass
     });
     newUser.save((err) =>{
@@ -58,12 +58,12 @@ authRouter.post('/creacompte', (req, res, next) => {
       else if (this.role === "Locataire"){
         res.redirect("profiloc");
       }
-      else if (this.role === 'Proprietaire'){
+      else  {
         res.redirect("profilpro");
       }
-      else {
+    /*  else {
         res.redirect("admin")
-      }
+      }*/
     });
   });
 });
