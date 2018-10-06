@@ -10,11 +10,9 @@ authRouter.get('/', (req, res, next) => {
   res.render('index');
 });
 
-
 authRouter.get('/creacompte', (req, res, next) => { // prendre le cours au sujet de passport
   res.render('creacompte');
 });
-
 
 authRouter.get('/connexion', (req, res, next) => {
   res.render('connexion', { "message": req.flash("error") });
@@ -23,7 +21,9 @@ authRouter.get('/connexion', (req, res, next) => {
 //page Catégorie.
 authRouter.get('/categorie', (req, res, next) => {
   myAppart.find()
-  .then(apparts => {
+  .populate('user') //méthode pour populer la donnée d'un user qui possède l'appartement au travers du modèle de bdd. 
+  .then(apparts => {  
+    console.log('app', apparts)
     res.render('categorie', { "message": req.flash("error") , apparts});
   })
 });
@@ -72,9 +72,7 @@ authRouter.post('/creacompte', (req, res, next) => {
   });
 });
 
-
 module.exports=authRouter;
-
 
 /*module.exports = router;
 

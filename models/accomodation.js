@@ -9,6 +9,7 @@ const appartSchema = new Schema ({
   picture : String,
   picture_pro : String,
   surface : Number,
+  prix : Number,
   availability : Date,
   description : String,
   user: {type: Schema.Types.ObjectId, ref: 'User'},
