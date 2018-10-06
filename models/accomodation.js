@@ -11,6 +11,7 @@ const appartSchema = new Schema ({
   surface : Number,
   availability : Date,
   description : String,
+  user: {type: Schema.Types.ObjectId, ref: 'User'},
   adresse : {
     street : String,
     number : Number,

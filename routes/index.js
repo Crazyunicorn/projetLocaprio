@@ -3,6 +3,7 @@ const authRouter  = express.Router();
 const myUser = require('../models/user') // va chercher le modele de données pour pouvoir les enregistrer en bdd
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
+const myAppart = require('../models/accomodation')
 
 /* GET home page */
 authRouter.get('/', (req, res, next) => {
@@ -21,7 +22,10 @@ authRouter.get('/connexion', (req, res, next) => {
 
 //page Catégorie.
 authRouter.get('/categorie', (req, res, next) => {
-  res.render('categorie', { "message": req.flash("error") });
+  myAppart.find()
+  .then(apparts => {
+    res.render('categorie', { "message": req.flash("error") , apparts});
+  })
 });
 
 //création page description appart
