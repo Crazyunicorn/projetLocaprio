@@ -15,10 +15,16 @@
 {{#if user}}
 
     <div class="navbar-end">
-      <a class="navbar-item">
-        Home
-      </a>
 
+      {{#if user.isLocataire}}
+      <a class="navbar-item">
+        {{user.firstName}}
+      </a>
+      {{else}}
+      <a class="navbar-item">
+        {{user.firstName}}
+      </a>
+      {{/if}}
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           Menu
@@ -78,8 +84,3 @@
 
   </div>
 </nav>
-:q
-:quit
-exit()
-quit()
-
