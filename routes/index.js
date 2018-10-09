@@ -30,9 +30,11 @@ authRouter.get('/categorie', (req, res, next) => {
 
 //création page description appart
 authRouter.get('/description/:id', (req, res, next) => {
-  myUser.findById(req.params.id)
+  myAppart.findById(req.params.id)
+  .populate('user') 
   .then(apparts=>{
     res.render('description', {'apparts': apparts})
+    console.log(apparts)
   })
   .catch(error=>{
     console.log(error)
