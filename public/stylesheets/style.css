@@ -5,6 +5,9 @@ body {
 a {
   color: #00B7FF; }
 
+h4 {
+  font-size: 14em; }
+
 #logo {
   font-size: 2em; }
 
@@ -13,10 +16,13 @@ a {
   color: white !important; }
 
 #crea1 {
-  margin: 4% 20% 4% 20%; }
+  margin: 4% 25% 4% 25%; }
 
 #crea2 {
   margin: 4% 30% 4% 30%; }
+
+#crea3 {
+  margin: 4% 35% 4% 35%; }
 
 #section1 {
   margin: 5% 2% 5% 2%; }
@@ -42,9 +48,7 @@ a {
   width: 99%; }
 
 .label {
-  text-align: right;
   font-weight: bold;
-  width: 100px;
   color: #303030; }
 
 #address {
@@ -95,7 +99,12 @@ a {
   font-size: 2em;
   text-decoration: underline; }
 
+<<<<<<< HEAD
 .logo {
   margin-left: 60px; }
+=======
+.btnform {
+  margin: 2%; }
+>>>>>>> 93520d578d35344a3cb0d414ddaf3b8dfb11bbf8
 
 /*# sourceMappingURL=style.css.map */
