@@ -16,6 +16,7 @@
   <section>
     <div class="columns">
       <div class="column is-one-fifth filtres">
+        <h3>Filtres</h3>
 
       </div>
       <div class="column">
@@ -24,6 +25,24 @@
               <td>{{> card this}}</td>
             {{/each}}
         </div>
+        <div class="">
+          <nav class="pagination" role="navigation" aria-label="pagination">
+    <a class="pagination-previous" title="This is the first page" disabled>Précédent</a>
+    <a class="pagination-next">Suivant</a>
+    <ul class="pagination-list">
+      <li>
+        <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+      </li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 2">2</a>
+      </li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 3">3</a>
+      </li>
+    </ul>
+  </nav>
+        </div>
+
       </div>
 
 
