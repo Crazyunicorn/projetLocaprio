@@ -40,8 +40,8 @@ authRouter.get('/description/:id', (req, res, next) => {
     console.log(error)
   })
 });
-  
-  
+
+
 
 // création d'un user en bdd
 authRouter.post('/creacompte', (req, res, next) => {
