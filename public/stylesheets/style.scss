@@ -9,10 +9,12 @@ a {
 }
 
 h1{
-  
+
 
 }
-
+#logo{
+  font-size: 2em;
+}
 .panel-heading{
   background-color: #24DBCD!important;
   color: white!important;
@@ -84,15 +86,15 @@ h1{
 .card{
 
   height: auto !important;
-  width: 500px!important;
-  padding: 2%;
+  width: 400px!important;
+  padding: 1%;
 
 
 }
 
 .wrapper{
   display: flex;
-  width: 100%;
+  width: 50%;
   height: auto;
 }
 
@@ -106,4 +108,9 @@ h1{
 
 .card-container{
   margin: 20px !important;
+}
+
+.filtres{
+  background-color: #009688;
+
 }
