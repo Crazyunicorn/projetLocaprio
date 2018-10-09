@@ -61,13 +61,14 @@ User.findById(req.params.id)
   //création d'une annonce en bdd
   router.post('/creannonce', (req, res, next) => {
     console.log(req.body);
-    const { surface, prix, availability, description, number, street, zip_code, city } = req.body; // ne pas oublier les paramères 'name="firstName"' dans les input des forms pour le req.body.
+    const { surface, prix, availability, description, number, street, zip_code, city, title } = req.body; // ne pas oublier les paramères 'name="firstName"' dans les input des forms pour le req.body.
 
     const newAnnonce = new myAppart({
       'surface' : surface,
       availability: new Date(availability),
       prix,
       description,
+      title,
       user: req.user._id,
       adresse: {
         'number': number,
@@ -76,7 +77,7 @@ User.findById(req.params.id)
         'city' : city
       }
     }) // cour mongoose express create - update document + penser aux id dans les forms
-    if (surface === "" || availability==="" || description==="" || number === "" || street === "" || zip_code === "" || city === "") {
+    if (surface === "" || availability==="" || description==="" || number === "" || street === "" || zip_code === "" || city === ""|| title==="") {
       res.render("creannonce", { message: "Remplissez toutes les informations pour créer votre annonce" });
       return;
     };

@@ -12,6 +12,7 @@ const appartSchema = new Schema ({
   prix : Number,
   availability : Date,
   description : String,
+  title : String,
   user: {type: Schema.Types.ObjectId, ref: 'User'},
   adresse : {
     street : String,

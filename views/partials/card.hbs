@@ -1,10 +1,12 @@
-<div class="columns">
+<div class="columns card-container">
   <div class="column">
-    <a href="/description/:id">
+
     <div class="card">
       <div class="card-image">
         <figure class="image is-4by3">
-          <img src="/images/apartment.png" alt="Placeholder image">
+          <a href="/description/:id">
+            <img src="/images/apartment.png" alt="Placeholder image">
+          </a>
         </figure>
       </div>
       <div class="card-content">
@@ -20,15 +22,22 @@
         </div>
       </div>
       <div class="contenta">
-        <ul>
-          <li>{{adresse.city}} {{adresse.zip_code}}</li>
-          <li>{{description}} - {{surface}}m2 - {{prix}}€</li>
-          <br>
-          <li class="transport"><img  src="/images/transport.png" alt="Placeholder image"> Abbesses</li>
-      </ul>
-  </div>
-  </div> 
-  </a>
-</div>
-</div>
+        <div class="colums">
+          <h3>{{title}}</h3>
+          <div class="colum">
+            <ul>
+              <li>{{adresse.city}} {{adresse.zip_code}}</li>
+              <li> {{surface}}m2 - {{prix}}€</li>
+              <br>
 
+            </ul>
+          </div>
+        <!--  <div class="colum">
+            <ul>
+                <li class="transport"><img  src="/images/transport.png" alt="Placeholder image"> Abbesses</li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

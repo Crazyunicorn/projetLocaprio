@@ -1,12 +1,23 @@
-<section id="categorie">
-  <h1>Check out apparts in Paris</h1>
 
-<div class="columns">
 
+
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Découvrez l'ensemble des logements disponibles.
+        </h1>
+        <h2 class="subtitle">
+          Trouvez un appartement n'a jamais été aussi simple.
+        </h2>
+      </div>
+    </div>
+  </section
+  <section>
+<div class="table">
   {{#each apparts}}
-    {{> card this}}
-  {{/each}}
+      <td>{{> card this}}</td>
+    {{/each}}
 </div>
 
-
-  </section>
+</section>
