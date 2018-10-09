@@ -5,6 +5,9 @@ body {
 a {
   color: #00B7FF; }
 
+#logo {
+  font-size: 2em; }
+
 .panel-heading {
   background-color: #24DBCD !important;
   color: white !important; }
@@ -69,12 +72,12 @@ a {
 /* card */
 .card {
   height: auto !important;
-  width: 500px !important;
-  padding: 2%; }
+  width: 400px !important;
+  padding: 1%; }
 
 .wrapper {
   display: flex;
-  width: 100%;
+  width: 50%;
   height: auto; }
 
 .table {

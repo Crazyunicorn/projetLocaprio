@@ -30,27 +30,18 @@ authRouter.get('/categorie', (req, res, next) => {
 
 //création page description appart
 authRouter.get('/description/:id', (req, res, next) => {
-<<<<<<< HEAD
+
   myUser.findById(req.params.id)
   .then(apparts=>{
-    res.render('/description/:id', {'apparts': apparts})
+    res.render('description', {'apparts': apparts})
   })
   .catch(error=>{
     console.log(error)
   })
-=======
-  myAppart.find()
-  .then(apparts=>{
-    console.log(apparts)
-    res.render('description', {'apparts' : apparts})
-  })
-  .catch(error=>{
-  console.log(error)
-  })
 
->>>>>>> 3a60d7f15596d4779070ea04de00049f4dcffee3
+
 });
-  
+
 
 // création d'un user en bdd
 authRouter.post('/creacompte', (req, res, next) => {
