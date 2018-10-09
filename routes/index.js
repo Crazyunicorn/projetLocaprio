@@ -82,6 +82,17 @@ authRouter.post('/creacompte', (req, res, next) => {
   });
 });
 
+authRouter.post('/profiloc/edit', (req, res, next) => {
+  const { firstName, lastName, email, password } = req.body;
+  My.update({_id: req.query.book_id}, { $set: {firstName, lastName, email, password }})
+  .then((book) => {
+    res.redirect('/books')
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+});
+
 
 module.exports=authRouter;
 
