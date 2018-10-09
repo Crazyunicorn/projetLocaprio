@@ -3,7 +3,7 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        Profil Proprio
+        Bienvenue {{user.firstName}}
       </h1>
       <h2 class="subtitle">
         Modifier vos informations.
@@ -12,33 +12,29 @@
   </div>
 </section>
 <section>
-  <p class="panel-tabs">
-    <a class="is-active">Modifier le profile</a>
-    <a>Confiance et vérification</a>
-    <a>Modifier mon annonce</a>
-    <a>Mes annonces</a>
-  </p>
-  <p class="panel-block is-active">
-    <span class="panel-icon">
-      <i class="fas fa-book" aria-hidden="true"></i>
-    </span>
-    Prénom: {{user.firstName}}
-  </p>
-  <p class="panel-block">
-    <span class="panel-icon">
-      <i class="fas fa-book" aria-hidden="true"></i>
-    </span>
-    Nom: {{user.lastName}}
-  </p>
-  <p class="panel-block">
-    <span class="panel-icon">
-      <i class="fas fa-book" aria-hidden="true"></i>
-    </span>
-    Adresse e-mail: {{user.email}}
-  </p>
+
+
+
+  <nav class="panel" id="crea2">
+    <p class="panel-heading">
+      Mes informations
+    </p>
+    <div class="panel-block">
+       <h4>Prénom : </h4>  <p> {{user.firstName}}</p>
+    </div>
+    <div class="panel-block">
+    <h4>Nom : </h4> <p>{{user.lastName}}</p>
+    </div>
+    <div class="panel-block">
+      <h4>Email : </h4>  <p> {{user.email}}</p>
+    </div>
 
   <div class="panel-block">
-    <button class="button is-link is-outlined is-fullwidth">
-      Enregistrer
-    </button>
-  </div>
+      <button class="button is-danger is-outlined ">
+       Editer
+      </button>
+      <button class="button  is-outlined is-primary">
+       Enregistrer
+      </button>
+    </div>
+  </nav>
