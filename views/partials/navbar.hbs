@@ -1,4 +1,4 @@
-<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top is-dark" role="navigation" aria-label="main navigation">
 <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <h1>Locaprio</h1>
@@ -30,12 +30,12 @@
         {{user.firstName}}
       </a>
       {{/if}}
-      <div class="navbar-item has-dropdown is-hoverable">
+      <div class="navbar-item has-dropdown is-hoverable ">
         <a class="navbar-link">
           Menu
         </a>
 
-        <div class="navbar-dropdown">
+        <div class="navbar-dropdown is-right">
 
         {{#if user.isLocataire}}
           <a href="/profiloc"class="navbar-item">
@@ -53,9 +53,9 @@
           Créer mon annonce
           </a>
 
-          
 
-  
+
+
 
         {{/if}}
 
@@ -76,14 +76,14 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-        
+
         <a  href="/creacompte" class="button is-primary">
             <strong>Sign up</strong>
           </a>
           <a href="/connexion" class="button is-light">
             Log in
           </a>
-        
+
         </div>
       </div>
     </div>

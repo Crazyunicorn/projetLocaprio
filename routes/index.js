@@ -21,16 +21,24 @@ authRouter.get('/connexion', (req, res, next) => {
 //page Catégorie.
 authRouter.get('/categorie', (req, res, next) => {
   myAppart.find()
-  .populate('user') //méthode pour populer la donnée d'un user qui possède l'appartement au travers du modèle de bdd. 
-  .then(apparts => {  
+  .populate('user') //méthode pour populer la donnée d'un user qui possède l'appartement au travers du modèle de bdd.
+  .then(apparts => {
     console.log('app', apparts)
     res.render('categorie', { "message": req.flash("error") , apparts});
   })
 });
 
 //création page description appart
-authRouter.get('/description', (req, res, next) => {
-  res.render('description', { "message": req.flash("error") });
+authRouter.get('/description/:id', (req, res, next) => {
+  myAppart.find()
+  .then(apparts=>{
+    console.log(apparts)
+    res.render('description', {'apparts' : apparts})
+  })
+  .catch(error=>{
+  console.log(error)
+  })
+
 });
 
 // création d'un user en bdd
@@ -71,6 +79,7 @@ authRouter.post('/creacompte', (req, res, next) => {
     });
   });
 });
+
 
 module.exports=authRouter;
 
