@@ -29,9 +29,16 @@ authRouter.get('/categorie', (req, res, next) => {
 });
 
 //création page description appart
-authRouter.get('/description', (req, res, next) => {
-  res.render('description', { "message": req.flash("error") });
+authRouter.get('/description/:id', (req, res, next) => {
+  myUser.findById(req.params.id)
+  .then(apparts=>{
+    res.render('/description/:id', {'apparts': apparts})
+  })
+  .catch(error=>{
+    console.log(error)
+  })
 });
+  
 
 // création d'un user en bdd
 authRouter.post('/creacompte', (req, res, next) => {
