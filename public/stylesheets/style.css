@@ -5,6 +5,106 @@ body {
 a {
   color: #00B7FF; }
 
+#logo {
+  font-size: 2em; }
+
+.panel-heading {
+  background-color: #24DBCD !important;
+  color: white !important; }
+
+#crea1 {
+  margin: 4% 20% 4% 20%; }
+
+#crea2 {
+  margin: 4% 30% 4% 30%; }
+
+#section1 {
+  margin: 5% 2% 5% 2%; }
+
+.transport {
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 0.3em;
+  margin-top: -0.5em; }
+
+.contenta {
+  list-style: none; }
+
+#locationField, #controls {
+  position: relative;
+  width: 480px; }
+
+#autocomplete {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 99%; }
+
+.label {
+  text-align: right;
+  font-weight: bold;
+  width: 100px;
+  color: #303030; }
+
+#address {
+  border: 1px solid #000090;
+  background-color: #f0f0ff;
+  width: 480px;
+  padding-right: 2px; }
+
+#address td {
+  font-size: 10pt; }
+
+.field {
+  width: 99%; }
+
+.slimField {
+  width: 80px; }
+
+.wideField {
+  width: 200px; }
+
+#locationField {
+  height: 20px;
+  margin-bottom: 2px; }
+
+/* card */
+.card {
+  height: auto !important;
+  width: 400px !important;
+  padding: 1%; }
+
+.wrapper {
+  display: flex;
+  width: 50%;
+  height: auto; }
+
+.table {
+  max-width: 100vw;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+.card-container {
+  margin: 20px !important; }
+
+.filtres h3 {
+  padding: 5%;
+  font-size: 2em;
+  text-decoration: underline; }
+
+.logo {
+  margin-left: 60px; }
+
+body {
+  padding: 50px 0 0 0 !important;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
 h4 {
   font-size: 14em; }
 
@@ -99,12 +199,14 @@ h4 {
   font-size: 2em;
   text-decoration: underline; }
 
-<<<<<<< HEAD
-.logo {
-  margin-left: 60px; }
-=======
 .btnform {
   margin: 2%; }
->>>>>>> 93520d578d35344a3cb0d414ddaf3b8dfb11bbf8
+
+.logo {
+  margin-right: 70px;
+  margin-top: 20px; }
+
+.locaprio {
+  margin-right: 10px; }
 
 /*# sourceMappingURL=style.css.map */
