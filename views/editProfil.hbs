@@ -1,0 +1,62 @@
+
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{user.firstName}} tu peux modifier tes informations ici.
+      </h1>
+    </div>
+  </div>
+</section>
+<section>
+
+
+<form class="" action="/editProfil?_id={{user.id}}" method="POST">
+  <nav class="panel" id="crea3">
+    <p class="panel-heading">
+      Modifier mes informations
+    </p>
+    <div class="panel-block">
+      <div class="field">
+        <label for="">Prénom</label>
+        <div>
+          <input type="text" name="firstName" class="input" value="{{user.firstName}}">
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-block">
+      <div class="field">
+          <label for="">Nom</label>
+        <div>
+          <input type="text" name="lastName" class="input" value="{{user.lastName}}">
+        </div>
+      </div>
+    </div>
+
+      <div class="panel-block">
+        <div class="field">
+            <label for="">Email</label>
+              <div>
+                  <input type="text" name="email" class="input" value="{{user.email}}">
+              </div>
+          </div>
+        </div>
+
+        <div class="panel-block">
+          <div class="field">
+              <label for="">Mot de passe</label>
+                <div>
+                    <input type="text" name="password" class="input" value="" placeholder="votre mot de passe">
+                </div>
+            </div>
+          </div>
+
+  <div class="panel-block">
+
+        <button class="button is-success is-outlined btnform " type="submit">Enregistrer </button>
+
+    </div>
+  </nav>
+
+</form>
