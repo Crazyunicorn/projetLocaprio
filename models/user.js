@@ -11,7 +11,7 @@ const userSchema = new Schema({
   email : String,
   password : String,
   picture : String,
-  role:  {
+  role:  { 
    type: String,
    enum: ["Locataire", "Proprietaire", "Admin"],
  }

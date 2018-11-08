@@ -200,7 +200,15 @@ h4 {
   text-decoration: underline; }
 
 .btnform {
-  margin: 2%; }
+  padding: 1% 0 0 0; }
+
+.panel-heading {
+  font-size: 3em; }
+
+.panel-block {
+  padding: 4% !important;
+  background-color: #fafafa;
+  font-size: 1.2em; }
 
 .logo {
   margin-right: 70px;

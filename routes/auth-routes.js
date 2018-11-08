@@ -39,6 +39,34 @@ User.findById(req.params.id)
         });
 
 
+  router.get('/editProfil', ensureLogin.ensureLoggedIn("/connexion"), (req, res, next)=> {
+    User.findById({id: req.query.user.id})
+    .then((user)=>{
+    res.render('editProfil')
+    })
+
+});
+
+
+  router.post('/editProfil/:_id?', (req, res, next) => {
+    const { firstName, lastName, email} = req.body;
+    User.findByIdAndUpdate(id, req.query.id, { $set: {firstName, lastName, email}})
+    .then((user) => {
+      res.redirect('categorie', {user})
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  });
+
+
+
+
+
+
+
+
+
 
   //page profil locataire uniquement accessible pour un user ayant crée son compte.
   router.get('/profiloc', ensureLogin.ensureLoggedIn("/connexion"),(req, res, next) => {

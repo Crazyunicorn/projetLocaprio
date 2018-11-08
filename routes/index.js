@@ -41,8 +41,6 @@ authRouter.get('/description/:id', (req, res, next) => {
   })
 });
 
-
-
 // création d'un user en bdd
 authRouter.post('/creacompte', (req, res, next) => {
   console.log(req.body);
@@ -82,16 +80,22 @@ authRouter.post('/creacompte', (req, res, next) => {
   });
 });
 
-authRouter.post('/profiloc/edit', (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body;
-  My.update({_id: req.query.book_id}, { $set: {firstName, lastName, email, password }})
-  .then((book) => {
-    res.redirect('/books')
+
+
+
+/*
+authRouter.get('/editProfil', (req, res, next) => {
+  myUser.findOne({_id: req.query.user._id})
+  .then((user) => {
+    res.render("editProfil", { user})
   })
   .catch((error) => {
     console.log(error)
   })
 });
+*/
+
+
 
 
 module.exports=authRouter;
