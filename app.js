@@ -14,6 +14,7 @@ const passport     = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 const User = require('./models/user');
+var cors = require('cors')
 
 mongoose
   .connect(process.env.MONGODB_URI || 'mongodb://localhost/locaprio', {useNewUrlParser: true})
@@ -28,6 +29,8 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+app.use(cors())
+
 hbs.registerPartials(__dirname + '/views/partials');
 
 // Middleware Setup

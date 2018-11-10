@@ -21,6 +21,19 @@ class App extends Component {
     return (
       <div>
         <Switch>
+          <Route exact path='/' component={Navbar} />
+          <Route exact path='/testupload' component={Navbar} />
+          <Route exact path='/annonces' component={Navbar} />
+          <Route exact path='/description' component={Navbar} />
+          <Route exact path='/login' component={Navbar} />
+          <Route exact path='/signup' component={Navbar} />
+          <Route exact path='/profilproprio' component={Navbar} />
+          <Route exact path='/profilloc' component={Navbar} />
+          <Route exact path='/profilprivloc' component={Navbar} />
+          <Route exact path='/creadossierloc' component={Navbar} />
+          <Route exact path='/notificationproprio' component={Navbar} />
+        </Switch>
+        <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/testupload' component={Alextest} />
           <Route exact path='/annonces' component={Annonces} />
@@ -28,40 +41,27 @@ class App extends Component {
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/profilproprio' component={Profilproprio} />
+          <Route exact path='/profilloc' component={Profilloc} />
           <Route exact path='/profilprivloc' component={Profilprivloc} />
           <Route exact path='/creadossierloc' component={Creadossierloc} />
           <Route exact path='/notificationproprio' component={Notificationproprio} />
-
-
-
-
         </Switch>
-        <Navbar />
-        <Footer />
+        <Switch>
+          <Route exact path='/' component={Footer} />
+          <Route exact path='/testupload' component={Footer} />
+          <Route exact path='/annonces' component={Footer} />
+          <Route exact path='/description' component={Footer} />
+          <Route exact path='/login' component={Footer} />
+          <Route exact path='/signup' component={Footer} />
+          <Route exact path='/profilproprio' component={Footer} />
+          <Route exact path='/profilloc' component={Footer} />
+          <Route exact path='/profilprivloc' component={Footer} />
+          <Route exact path='/creadossierloc' component={Footer} />
+          <Route exact path='/notificationproprio' component={Footer} />
+        </Switch>
       </div>
     );
   }
 }
 
 export default App;
-
-
-//<Switch>
-         //<Route exact path='/' component={Navbar} />
-         //<Route  path='/studies' component={Navbar} />
-         //<Route  path='/business' component={Navbar} />
-         //<Route  path='/freelance-experimenté' component={Navbar} />
-         //<Route  path='/contact/devis-gratuit' component={Navbar} />
-       //</Switch>
-
-       //<Switch>
-         //<Route exact path='/' component={Home} />
-       //</Switch>
-
-       //<Switch>
-         //<Route exact path='/' component={Footer} />
-         //<Route  path='/studies' component={Footer} />
-         //<Route  path='/business' component={Footer} />
-         //<Route  path='/freelance-experimenté' component={Footer} />
-         //<Route  path='/contact/devis-gratuit' component={Footer} />
-       //</Switch>
