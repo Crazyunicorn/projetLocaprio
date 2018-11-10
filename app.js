@@ -13,8 +13,13 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
+<<<<<<< HEAD
 const User = require("./models/user");
 const cors = require("cors");
+=======
+const User = require('./models/user');
+var cors = require('cors')
+>>>>>>> 211ea35e1fdd7a03ea6ecdc140aa8a7994cd0ea2
 
 mongoose
   .connect(
@@ -36,7 +41,13 @@ const debug = require("debug")(
 );
 
 const app = express();
+<<<<<<< HEAD
 hbs.registerPartials(__dirname + "/views/partials");
+=======
+app.use(cors())
+
+hbs.registerPartials(__dirname + '/views/partials');
+>>>>>>> 211ea35e1fdd7a03ea6ecdc140aa8a7994cd0ea2
 
 // Middleware Setup
 app.use(logger("dev"));

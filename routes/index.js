@@ -18,13 +18,23 @@ authRouter.get('/connexion', (req, res, next) => {
   res.render('connexion', { "message": req.flash("error") });
 });
 
-//page Catégorie.
+//page Appartements
 authRouter.get('/categorie', (req, res, next) => {
   myAppart.find()
   .populate('user') //méthode pour populer la donnée d'un user qui possède l'appartement au travers du modèle de bdd.
   .then(apparts => {
     console.log('app', apparts)
     res.render('categorie', { "message": req.flash("error") , apparts});
+  })
+});
+
+//crea route pour envoyer le contenu de la page Catégorie du server sur la page Annonces de react 
+authRouter.get('/api/apparts', (req, res, next) => {
+  myAppart.find()
+  .populate('user') //méthode pour populer la donnée d'un user qui possède l'appartement au travers du modèle de bdd.
+  .then(apparts => {
+    console.log('app', apparts)
+    res.json({apparts});
   })
 });
 
