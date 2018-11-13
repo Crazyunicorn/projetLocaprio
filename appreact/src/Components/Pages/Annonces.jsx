@@ -32,7 +32,7 @@ class Annonces extends Component {
      
         <button className="button is-primary is-inverted is-outlined">Prix</button>&nbsp;&nbsp;&nbsp;
         <button className="button is-primary is-inverted is-outlined">Ville</button>&nbsp;&nbsp;&nbsp;
-        <button className="button is-primary is-inverted is-outlined">Surface</button> 
+        <button className="button is-primary is-inverted is-outlined">Surface</button>&nbsp;&nbsp;&nbsp;
         <button className="button is-primary is-focused">+ de filtres</button> 
       </div>
     </div>

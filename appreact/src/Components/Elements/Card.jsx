@@ -13,7 +13,7 @@ class Card extends Component {
     <div className="card">
       <div className="card-image">
         <figure className="image is-4by3">
-          <a href='/description/{{_id}}'>
+          <a href={'/description/'+ this.props.appart._id}>
             <img src="/images/apartment.png" alt=""/>
           </a>
         </figure>

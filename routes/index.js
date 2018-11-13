@@ -38,6 +38,8 @@ authRouter.get('/api/apparts', (req, res, next) => {
   })
 });
 
+
+
 //création page description appart
 authRouter.get('/description/:id', (req, res, next) => {
   myAppart.findById(req.params.id)
@@ -50,6 +52,21 @@ authRouter.get('/description/:id', (req, res, next) => {
     console.log(error)
   })
 });
+
+//crea route pour envoyer le contenu de la page description appart du server sur la page description annonce de react 
+authRouter.get('/api/description/:id', (req, res, next) => {
+  myAppart.findById(req.params.id)
+  .populate('user') //méthode pour populer la donnée d'un user qui possède l'appartement au travers du modèle de bdd.
+  .then(appart=>{
+    res.json({'appart': appart})
+    console.log(appart)
+  })
+  .catch(error=>{
+    console.log(error)
+  })
+});
+
+
 
 // création d'un user en bdd
 authRouter.post('/creacompte', (req, res, next) => {
