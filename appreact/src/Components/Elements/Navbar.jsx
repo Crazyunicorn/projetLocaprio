@@ -5,10 +5,10 @@ class Navbar extends Component {
   render() {
     return(
 <div>
-<a href="http://localhost:3000"><img className="logohouse" src="./images/house.png" alt=""/></a>
 <nav className="navbar" role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
-  
+  <a href="http://localhost:3000"><img className="logohouse" src="/images/house.png" alt=""/></a>
+
   <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
