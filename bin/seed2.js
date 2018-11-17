@@ -6,6 +6,7 @@ const dbtitle = 'locaprio';
 mongoose.connect(`mongodb://localhost/${dbtitle}`)
 .then(()=>{
 // User.collection.drop();
+Annonce.collection.drop();
 
 
 const annonce = [
@@ -105,10 +106,10 @@ const annonce = [
     }
   },
 ]
-User.findOne()
-.then(user => {
-  const createAnnonce = annonce.map(annonce => {
-    annonce.user = user._id
+User.find()
+.then(users => {
+  const createAnnonce = annonce.map((annonce,idx) => {
+    annonce.user = users[idx]._id
     const newAnnonce = new Annonce(annonce);
     return newAnnonce.save()
      .then(author => {
