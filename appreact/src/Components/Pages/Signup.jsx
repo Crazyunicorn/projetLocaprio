@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Upload from "../Elements/Upload.jsx";
 class Signup extends Component {
   render() {
 
@@ -90,8 +90,10 @@ class Signup extends Component {
                         </select>
                       </div>
                     </div>
+                    <div className="column">
+                      <Upload />
+                    </div>
                   </div>
-                  <br />
 
                   <div className="field">
                     <p className="control">
