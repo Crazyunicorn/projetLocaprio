@@ -10,8 +10,7 @@ import Annonces from "./Pages/Annonces.jsx";
 import Description from "./Pages/Description.jsx";
 import Login from "./Pages/Login.jsx";
 import Signup from "./Pages/Signup";
-import Profilproprio from "./Pages/Profilproprio";
-import Profilloc from "./Pages/Profilloc";
+import Profil from "./Pages/Profil";
 import Profilprivloc from "./Pages/Profilprivloc";
 import Creadossierloc from "./Pages/Creadossierloc";
 import Notificationproprio from "./Pages/Notificationproprio";
@@ -25,13 +24,12 @@ class App extends Component {
         </Switch>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/test" component={Alextest} />
+          <Route exact path="/testupload" component={Alextest} />
           <Route exact path="/annonces" component={Annonces} />
           <Route exact path="/description/:id" component={Description} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/profilproprio" component={Profilproprio} />
-          <Route exact path="/profilloc" component={Profilloc} />
+          <Route exact path="/profil" component={Profil} />
           <Route exact path="/profilprivloc" component={Profilprivloc} />
           <Route exact path="/creadossierloc" component={Creadossierloc} />
           <Route

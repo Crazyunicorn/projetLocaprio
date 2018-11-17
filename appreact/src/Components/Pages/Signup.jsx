@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Upload from "../Elements/Upload.jsx";
 class Signup extends Component {
   render() {
+
     return (
       <div>
         <section id="crea1">
@@ -110,6 +111,7 @@ class Signup extends Component {
           </div>
         </section>
       </div>
+
     );
   }
 }
