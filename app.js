@@ -16,7 +16,6 @@ const flash = require("connect-flash");
 const User = require("./models/user");
 const cors = require("cors");
 
-
 mongoose
   .connect(
     process.env.MONGODB_URI || "mongodb://localhost/locaprio",
@@ -38,8 +37,8 @@ const debug = require("debug")(
 
 const app = express();
 hbs.registerPartials(__dirname + "/views/partials");
-app.use(cors())
 
+app.use(cors());
 
 // Middleware Setup
 app.use(logger("dev"));
