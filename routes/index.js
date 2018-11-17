@@ -113,6 +113,20 @@ authRouter.post("/creacompte", (req, res, next) => {
   });
 });
 
+//crea route pour envoyer le contenu de la crea compte du server sur la page profil de react
+authRouter.get("/api/creacompte", (req, res, next) => {
+  res.json(req.user)
+  // myUser
+  //   .find()
+  //   .then(myUser => {
+  //     res.json({ myUser });
+  //     console.log(myUser);
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //   });
+});
+
 /*
 authRouter.get('/editProfil', (req, res, next) => {
   myUser.findOne({_id: req.query.user._id})

@@ -4,8 +4,10 @@ class Notificationproprio extends Component {
   render() {
     return(
 <div>
-<h1>Notification prévenant le proprio qu'un locataire a postulé à son annonce</h1>
-</div>
+<div class="notification">
+  <button class="delete"></button>
+Prénometnomdulocataire souhaiterait postuler à votre annonce.
+</div></div>
     );
   }
 }
