@@ -29,11 +29,7 @@ class Description extends Component {
             <div className="tile is-child box">
               <p className="title"> // comm 1</p>
               <figure className="imageuser">
-                <img
-                  src="/images/rsz_julienbig.jpg"
-                  alt="Placeholder image"
-                  style="height:300px; width: 200px"
-                />
+                <img src="/images/rsz_julienbig.jpg" alt="Placeholder image" />
               </figure>
               <br /> // comm 2
             </div>
