@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Axios from "axios";
-const cors = require("cors");
+import axios from "axios";
+import api from "../api.js";
+
 class Alextest extends Component {
   constructor(props) {
     super(props);
@@ -9,18 +10,43 @@ class Alextest extends Component {
       firstName: "",
       lastName: "",
       email: "",
-      role: ""
+      role: "Proprietaire",
+      password: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    let { name, value } = event.target;
+    //let { value } = event.target;
+
+    this.setState({ [name]: value });
   }
+
   handleSubmit(event) {
-    alert("Votre compte est crée");
     event.preventDefault();
+    // const { firstName, lastName, email, role, password } = this.state;
+    console.log(this.state);
+    api
+      .post("/creacompte", this.state)
+      // {
+      //   firstName,
+      //   lastName,
+      //   email,
+      //   role,
+      //   password
+      // }
+      .then(respond => {
+        this.setState({
+          firstName: "",
+          lastName: "",
+          email: "",
+          role: "",
+          password: ""
+        });
+      })
+      .catch(error => console.log(error));
   }
 
   render() {
@@ -34,7 +60,7 @@ class Alextest extends Component {
                 <input
                   type="text"
                   name="firstName"
-                  value={this.state.value}
+                  value={this.state.firstName}
                   onChange={this.handleChange}
                 />
               </label>
@@ -45,7 +71,7 @@ class Alextest extends Component {
                 <input
                   type="text"
                   name="lastName"
-                  value={this.state.value}
+                  value={this.state.lastName}
                   onChange={this.handleChange}
                 />
               </label>
@@ -59,11 +85,23 @@ class Alextest extends Component {
                 <input
                   type="text"
                   name="email"
-                  value={this.state.value}
+                  value={this.state.email}
                   onChange={this.handleChange}
                 />
               </label>
             </div>
+            <div className="column">
+              <label>
+                Mot de passe :
+                <input
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </div>
+          </div>
+          <div className="columns">
             <div className="column">
               <label>
                 Vous êtes :

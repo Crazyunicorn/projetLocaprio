@@ -1,119 +1,127 @@
 import React, { Component } from "react";
-import Upload from "../Elements/Upload.jsx";
-class Signup extends Component {
-  render() {
+import axios from "axios";
+import api from "../api.js";
 
+class Alextest extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      role: "Proprietaire",
+      password: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    let { name, value } = event.target;
+    //let { value } = event.target;
+
+    this.setState({ [name]: value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    // const { firstName, lastName, email, role, password } = this.state;
+    console.log(this.state);
+    api
+      .post("/creacompte", this.state)
+      // {
+      //   firstName,
+      //   lastName,
+      //   email,
+      //   role,
+      //   password
+      // }
+      .then(respond => {
+        this.setState({
+          firstName: "",
+          lastName: "",
+          email: "",
+          role: "",
+          password: ""
+        });
+      })
+      .catch(error => console.log(error));
+  }
+
+  render() {
     return (
       <div>
-        <section id="crea1">
-          <div className="panel">
-            <div className="panel-heading ">
-              <h1>Créer votre Compte</h1>
+        <form onSubmit={this.handleSubmit}>
+          <div className="columns">
+            <div className="column">
+              <label>
+                Nom:
+                <input
+                  type="text"
+                  name="firstName"
+                  value={this.state.firstName}
+                  onChange={this.handleChange}
+                />
+              </label>
             </div>
-            <div className="panel-block">
-              <div className="container">
-                <form className="" action="/creacompte" method="POST">
-                  <div className="columns">
-                    <div className="column">
-                      <div className="field">
-                        <label className="label">Prénom</label>
-                        <div className="control">
-                          <input
-                            id="firstName"
-                            className="input"
-                            type="text"
-                            placeholder="ex : Alex"
-                            name="firstName"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="column">
-                      <div className="field">
-                        <label className="label">Nom</label>
-                        <div className="control">
-                          <input
-                            id="lastName"
-                            className="input"
-                            type="text"
-                            placeholder="ex : Smith"
-                            name="lastName"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="columns">
-                    <div className="column">
-                      <div className="field">
-                        <p className="control has-icons-left has-icons-right">
-                          <label className="label">Email</label>
-                          <input
-                            className="input"
-                            type="email"
-                            placeholder="Email"
-                            name="email"
-                          />
-                          <span className="icon is-small is-left">
-                            <i className="fas fa-envelope" />
-                          </span>
-                          <span className="icon is-small is-right">
-                            <i className="fas fa-check" />
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="column">
-                      <div className="field">
-                        <p className="control has-icons-left">
-                          <label className="label">Mot de passe</label>
-                          <input
-                            className="input"
-                            type="password"
-                            placeholder="Mot de passe"
-                            name="password"
-                          />
-                          <span className="icon is-small is-left">
-                            <i className="fas fa-lock" />
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="colums">
-                    <div className="column">
-                      <label className="label">Vous êtes ?</label>
-                      <div className="select">
-                        <select name="role">
-                          <option>Locataire</option>
-                          <option>Proprietaire</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="column">
-                      <Upload />
-                    </div>
-                  </div>
-
-                  <div className="field">
-                    <p className="control">
-                      <button
-                        className="button is-info is-outlined btnform"
-                        type="submit"
-                      >
-                        Créez son compte
-                      </button>
-                    </p>
-                  </div>
-                </form>
-              </div>
+            <div className="column">
+              <label>
+                Prénom:
+                <input
+                  type="text"
+                  name="lastName"
+                  value={this.state.lastName}
+                  onChange={this.handleChange}
+                />
+              </label>
             </div>
           </div>
-        </section>
-      </div>
 
+          <div className="columns">
+            <div className="column">
+              <label>
+                Email:
+                <input
+                  type="text"
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </div>
+            <div className="column">
+              <label>
+                Mot de passe :
+                <input
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+              </label>
+            </div>
+          </div>
+          <div className="columns">
+            <div className="column">
+              <label>
+                Vous êtes :
+                <select
+                  name="role"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                >
+                  <option value="Proprietaire">Proprietaire </option>
+                  <option value="Locataire"> Locataire </option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <input type="submit" value="Submit" className="button" />
+        </form>
+      </div>
     );
   }
 }
 
-export default Signup;
+export default Alextest;

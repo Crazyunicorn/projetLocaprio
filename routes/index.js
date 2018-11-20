@@ -11,7 +11,6 @@ authRouter.get("/", (req, res, next) => {
 });
 
 authRouter.get("/creacompte", (req, res, next) => {
-  // prendre le cours au sujet de passport
   res.render("creacompte");
 });
 
@@ -115,7 +114,7 @@ authRouter.post("/creacompte", (req, res, next) => {
 
 //crea route pour envoyer le contenu de la crea compte du server sur la page profil de react
 authRouter.get("/api/creacompte", (req, res, next) => {
-  res.json(req.user)
+  res.json(req.user);
   // myUser
   //   .find()
   //   .then(myUser => {

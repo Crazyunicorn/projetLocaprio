@@ -8,13 +8,13 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+const cors = require("cors");
 const session = require("express-session");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 const User = require("./models/user");
-const cors = require("cors");
 
 mongoose
   .connect(
@@ -38,7 +38,14 @@ const debug = require("debug")(
 const app = express();
 hbs.registerPartials(__dirname + "/views/partials");
 
-app.use(cors());
+// app.use(cors()); system de sécu qui bloque
+// alex config express-session
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000"]
+  })
+);
 
 // Middleware Setup
 app.use(logger("dev"));
@@ -94,8 +101,7 @@ passport.use(
   })
 );
 
-// alex config express-session
-app.use(cors()); //toujours utiliser avt les autres
+//toujours utiliser avt les autres
 app.use(
   session({
     secret: "locaprio",
