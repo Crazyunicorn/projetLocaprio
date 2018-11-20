@@ -7,10 +7,7 @@ class Alextest extends Component {
     super(props);
 
     this.state = {
-      firstName: "",
-      lastName: "",
       email: "",
-      role: "Proprietaire",
       password: ""
     };
     this.handleChange = this.handleChange.bind(this);
@@ -19,8 +16,6 @@ class Alextest extends Component {
 
   handleChange(event) {
     let { name, value } = event.target;
-    //let { value } = event.target;
-
     this.setState({ [name]: value });
   }
 
@@ -29,20 +24,11 @@ class Alextest extends Component {
     // const { firstName, lastName, email, role, password } = this.state;
     console.log(this.state);
     api
-      .post("/creacompte", this.state)
-      // {
-      //   firstName,
-      //   lastName,
-      //   email,
-      //   role,
-      //   password
-      // }
+      .post("/connexion", this.state)
+
       .then(respond => {
         this.setState({
-          firstName: "",
-          lastName: "",
           email: "",
-          role: "",
           password: ""
         });
       })
@@ -56,31 +42,6 @@ class Alextest extends Component {
           <div className="columns">
             <div className="column">
               <label>
-                Nom:
-                <input
-                  type="text"
-                  name="firstName"
-                  value={this.state.firstName}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </div>
-            <div className="column">
-              <label>
-                Prénom:
-                <input
-                  type="text"
-                  name="lastName"
-                  value={this.state.lastName}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </div>
-          </div>
-
-          <div className="columns">
-            <div className="column">
-              <label>
                 Email:
                 <input
                   type="text"
@@ -90,6 +51,9 @@ class Alextest extends Component {
                 />
               </label>
             </div>
+          </div>
+
+          <div className="columns">
             <div className="column">
               <label>
                 Mot de passe :
@@ -98,21 +62,6 @@ class Alextest extends Component {
                   value={this.state.password}
                   onChange={this.handleChange}
                 />
-              </label>
-            </div>
-          </div>
-          <div className="columns">
-            <div className="column">
-              <label>
-                Vous êtes :
-                <select
-                  name="role"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                >
-                  <option value="Proprietaire">Proprietaire </option>
-                  <option value="Locataire"> Locataire </option>
-                </select>
               </label>
             </div>
           </div>
