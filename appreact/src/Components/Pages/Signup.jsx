@@ -42,7 +42,7 @@ class Alextest extends Component {
           firstName: "",
           lastName: "",
           email: "",
-          role: "",
+          role: "Proprietaire",
           password: ""
         });
       })
@@ -52,73 +52,39 @@ class Alextest extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="columns">
-            <div className="column">
-              <label>
-                Nom:
-                <input
-                  type="text"
-                  name="firstName"
-                  value={this.state.firstName}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </div>
-            <div className="column">
-              <label>
-                Prénom:
-                <input
-                  type="text"
-                  name="lastName"
-                  value={this.state.lastName}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </div>
-          </div>
+        <div id="login">
+  <div className="login-card">
 
-          <div className="columns">
-            <div className="column">
-              <label>
-                Email:
-                <input
-                  type="text"
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </div>
-            <div className="column">
-              <label>
-                Mot de passe :
-                <input
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </div>
-          </div>
-          <div className="columns">
-            <div className="column">
-              <label>
-                Vous êtes :
-                <select
-                  name="role"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                >
-                  <option value="Proprietaire">Proprietaire </option>
-                  <option value="Locataire"> Locataire </option>
-                </select>
-              </label>
-            </div>
-          </div>
+    <div className="card-title">
+      <h1>Please Sign Up</h1>
+    </div>
 
-          <input type="submit" value="Submit" className="button" />
-        </form>
+    <div className="content">
+    <form onSubmit={this.handleSubmit}>
+        <input className="special-input" id="name" type="name" name="lastName" title="name" placeholder="Name" required value={this.state.lastName} onChange={this.handleChange}/>
+        <input className="special-input" id="firstname" type="firstname" name="firstName" title="firstname" placeholder="Firstname" required value={this.state.firstName} onChange={this.handleChange}/>
+        <input className="special-input" id="email" type="email" name="email" title="email" placeholder="Email" required value={this.state.email} onChange={this.handleChange}/>
+        <input className="special-input" id="password" type="password" name="password" title="password" placeholder="Password" required value={this.state.password} onChange={this.handleChange}/>
+        
+
+<select className="select is-rounded special-input"  type="role" name="role" title="role" placeholder="Vous êtes" required value={this.state.value} onChange={this.handleChange}>
+  <option value="Proprietaire">Proprietaire </option>
+  <option value="Locataire"> Locataire </option>
+  </select>
+
+
+
+
+       
+        <input type="submit" value="Submit" className="btn button btn-primary" />
+      </form>
+    </div>
+  </div>
+</div>
+
+
+          
+  
       </div>
     );
   }

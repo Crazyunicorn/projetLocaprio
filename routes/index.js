@@ -82,6 +82,7 @@ authRouter.post("/creacompte", (req, res, next) => {
   }
 
   myUser.findOne({ email }, "email", (err, user) => {
+    console.log("log 2"+req.body);
     if (user !== null) {
       res.render("creacompte", {
         message: "Cette adresse email existe déjà !!!"
@@ -98,6 +99,7 @@ authRouter.post("/creacompte", (req, res, next) => {
       password: hashPass
     });
     newUser.save(err => {
+      console.log("log 3"+req.body);
       if (err) {
         res.render("creacompte", { message: "big problem" });
       } else if (this.role === "Locataire") {
