@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Navbar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loggedUser: this.props.loggedUser
+    };
+  }
   render() {
     return (
       <div>
@@ -40,14 +47,17 @@ class Navbar extends Component {
                 </div>
               </div>
             </div>
-
+            {this.props.loggedUser.email ? "your logged" : "not logged"}
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
+                  <Link className="button " to="/test">
+                    <strong>test</strong>
+                  </Link>
                   <Link className="button is-primary" to="/signup">
                     <strong>Sign up</strong>
                   </Link>
-                  <Link className="button is-light" to="/test">
+                  <Link className="button is-light" to="/login">
                     Log in
                   </Link>
                 </div>

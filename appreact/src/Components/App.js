@@ -16,18 +16,49 @@ import Creadossierloc from "./Pages/Creadossierloc";
 import Notificationproprio from "./Pages/Notificationproprio";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedUser: {}
+    };
+  }
+
+  onLogin(user) {
+    console.log("hi from onLogin in app.js");
+    this.setState({
+      loggedUser: user
+    });
+  }
+
   render() {
     return (
       <div>
         <Switch>
-          <Route path="/" component={Navbar} />
+          <Route
+            path="/"
+            render={() => <Navbar loggedUser={this.state.loggedUser} />}
+          />
         </Switch>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/test" component={Alextest} />
+          <Route
+            exact
+            path="/test"
+            render={() => <Alextest loggedUser={this.state.loggedUser} />}
+          />
           <Route exact path="/annonces" component={Annonces} />
-          <Route exact path="/description/:id" component={Description} />
-          <Route exact path="/login" component={Login} />
+          <Route path="/description/:id" component={Description} />
+          <Route
+            exact
+            path="/login"
+            render={() =>
+              !this.state.loggedUser.email ? (
+                <Login moduleUser={this.onLogin.bind(this)} />
+              ) : (
+                <Profil loggedUser={this.state.loggedUser} />
+              )
+            }
+          />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/profil" component={Profil} />
           <Route exact path="/profilprivloc" component={Profilprivloc} />
