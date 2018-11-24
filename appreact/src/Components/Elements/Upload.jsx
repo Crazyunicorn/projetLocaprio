@@ -1,15 +1,20 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 class Upload extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      file: ""
+      file: "",
+      dossierOK: false
     };
   }
 
   render() {
+    if(this.state.dossierOK) {
+      return <Redirect to='/creadossierloc/complet'></Redirect>
+    }
     return (
       <div>
         <form
@@ -17,11 +22,61 @@ class Upload extends Component {
           method="post"
           enctype="multipart/form-data"
         >
-          <label>Photo de profil :</label>
-          <input className="button" type="file" name="file" />
+        &nbsp;&nbsp;&nbsp;
+<div className="file has-name is-fullwidth">
+  <label className="file-label">
+    <input className="file-input" type="file" name="resume"/>
+    <span className="file-cta">
+      <span className="file-icon">
+        <i className="fas fa-upload"></i>
+      </span>
+      <span className="file-label">
+        Choose a file…
+      </span>
+    </span>
+    <span className="file-name">
+      carteid.png
+    </span>
+  </label>
+</div>
+&nbsp;&nbsp;&nbsp;
 
-          <input className="button" type="submit" value="Envoyer" />
-        </form>
+<div className="file has-name is-fullwidth">
+  <label className="file-label">
+    <input className="file-input" type="file" name="resume"/>
+    <span className="file-cta">
+      <span className="file-icon">
+        <i className="fas fa-upload"></i>
+      </span>
+      <span className="file-label">
+        Choose a file…
+      </span>
+    </span>
+    <span className="file-name">
+      bulletinsdesalaire.pdf
+    </span>
+  </label>
+</div>
+&nbsp;&nbsp;&nbsp;
+
+<div className="file has-name is-fullwidth">
+  <label className="file-label">
+    <input className="file-input" type="file" name="resume"/>
+    <span className="file-cta">
+      <span className="file-icon">
+        <i className="fas fa-upload"></i>
+      </span>
+      <span className="file-label">
+        Choose a file…
+      </span>
+    </span>
+    <span className="file-name">
+      justificatifdomicile.pdf
+    </span>
+  </label>
+</div>
+<input className="button is-primary"type="submit" value="Créer" onClick={() => this.setState({dossierOK: true})}/> 
+</form>  
       </div>
     );
   }

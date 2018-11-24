@@ -14,8 +14,17 @@ import Profil from "./Pages/Profil";
 import Profilprivloc from "./Pages/Profilprivloc";
 import Creadossierloc from "./Pages/Creadossierloc";
 import Notificationproprio from "./Pages/Notificationproprio";
+import Candidatures from "./Pages/Candidatures";
 
 class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {user: {}}
+  }
+
+  updateUser(user) {
+    this.setState({user})
+  }
   render() {
     return (
       <div>
@@ -27,11 +36,14 @@ class App extends Component {
           <Route exact path="/test" component={Alextest} />
           <Route exact path="/annonces" component={Annonces} />
           <Route exact path="/description/:id" component={Description} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login"  render={()=><Login updateUser={this.updateUser.bind(this)}></Login>} />
+          <Route exact path="/signup" render={()=><Signup updateUser={this.updateUser.bind(this)}></Signup>} />
           <Route exact path="/profil" component={Profil} />
           <Route exact path="/profilprivloc" component={Profilprivloc} />
-          <Route exact path="/creadossierloc" component={Creadossierloc} />
+          <Route path="/creadossierloc" render={()=> <Creadossierloc user={this.state.user}></Creadossierloc>} />
+          <Route exact path="/candidatures" component={Candidatures} />
+
+
           <Route
             exact
             path="/notificationproprio"

@@ -11,6 +11,12 @@ const userSchema = new Schema({
   email : String,
   password : String,
   picture : String,
+  image : String,
+  dossier: {
+    carteid: String,
+    bulletinssalaire: String,
+    justificatifdomicile: String,
+  },
   role:  { 
    type: String,
    enum: ["Locataire", "Proprietaire", "Admin"],

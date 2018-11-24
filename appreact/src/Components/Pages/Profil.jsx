@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Card from "../Elements/Card";
+import { Link } from "react-router-dom";
 
 
 class Profil extends Component {
@@ -35,35 +36,54 @@ class Profil extends Component {
   <div className="hero-body">
     <div className="container">
       <h1 className="title">
-        Bienvenue { this.state.user ? this.state.user.firstName : ''}
+      <figure className="image is-128x128">
+      <img className="is-rounded" src="/images/avatarproprio.png" alt="Placeholder image"/>
+      </figure>
       </h1>
-      <h2 className="subtitle">
-        Modifier vos informations.
-      </h2>
     </div>
   </div>
 </section>
 
-  <nav className="panel" id="crea3">
-    <div className="panel-heading">
-      Mes informations
-    </div>
-    <div className="panel-block">
-       <h4>Prénom : </h4>  <p> { this.state.appart && this.state.appart.user ? this.state.appart.user.firstName : ''}</p>
-    </div>
-    <div className="panel-block">
-    <h4>Nom : </h4> <p>{ this.state.appart && this.state.appart.user ? this.state.appart.user.lasttName : ''}</p>
-    </div>
-    <div className="panel-block">
-      <h4>Email : </h4>  <p> { this.state.appart && this.state.appart.user ? this.state.appart.user.email : ''}</p>
-    </div>
 
-  <div className="panel-block">
+ <nav className="panel" id="crea3">
+    <div className="panel-heading">
+    <div className="tabs">
+  <ul>
+    <li className="is-active"><a>Mes informations</a></li>
+    <Link to="/candidatures">
+    Candidatures reçues
+    </Link>
+  </ul>
+</div>    </div>
+  
+
+  <a className="panel-block is-active">
+    <span className="panel-icon">
+      <i className="fas fa-book" aria-hidden="true"></i>
+    </span>
+    <h4>Prénom : </h4>  <p> { this.state.appart && this.state.appart.user ? this.state.appart.user.firstName : ''}</p>
+  </a>
+  <a className="panel-block">
+    <span className="panel-icon">
+      <i className="fas fa-book" aria-hidden="true"></i>
+    </span>
+    <h4>Nom : </h4> <p>{ this.state.appart && this.state.appart.user ? this.state.appart.user.lasttName : ''}</p>
+  </a>
+  <a className="panel-block">
+    <span className="panel-icon">
+      <i className="fas fa-book" aria-hidden="true"></i>
+    </span>
+    <h4>Email : </h4>  <p> { this.state.appart && this.state.appart.user ? this.state.appart.user.email : ''}</p>
+  </a>
+
+<div className="panel-block">
       <a href='/editProfil' className="button is-link is-outlined btnform">
        Editer
        </a>
     </div>
-  </nav>
+
+</nav>
+
 
       </div>
       

@@ -22,6 +22,7 @@ class Alextest extends Component {
     //let { value } = event.target;
 
     this.setState({ [name]: value });
+    this.props.updateUser()
   }
 
   handleSubmit(event) {
