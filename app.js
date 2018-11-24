@@ -1,5 +1,6 @@
 require("dotenv").config();
 require("./configs/fileupload");
+
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
@@ -15,6 +16,8 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 const User = require("./models/user");
+
+const passportSetup = require("./configs/passport");
 
 mongoose
   .connect(
@@ -63,44 +66,6 @@ app.use(
   })
 );
 
-// strategie passport
-passport.serializeUser((user, cb) => {
-  cb(null, user._id);
-});
-
-passport.deserializeUser((id, cb) => {
-  User.findById(id, (err, user) => {
-    if (err) {
-      return cb(err);
-    }
-    cb(null, user);
-  });
-});
-
-app.use(flash());
-passport.use(
-  new LocalStrategy((email, password, next) => {
-    passReqToCallback: true;
-    console.log("hello0");
-    User.findOne({ email }, (err, user) => {
-      console.log("hello1", user);
-      if (err) {
-        return next(err);
-      }
-      if (!user) {
-        return next(null, false, { message: "Mauvais utilisateur" });
-      }
-      if (!bcrypt.compareSync(password, user.password)) {
-        console.log("hello2");
-        return next(null, false, { message: "Mauvais mot de passe" });
-      }
-      app.locals.user = user; // yolo ???
-      app.locals.isLocataire = user.role === "Locataire";
-      return next(null, user);
-    });
-  })
-);
-
 //toujours utiliser avt les autres
 app.use(
   session({
@@ -110,9 +75,7 @@ app.use(
   })
 );
 
-// alex passport session
-app.use(passport.initialize());
-app.use(passport.session());
+passportSetup(app);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
@@ -126,7 +89,9 @@ const index = require("./routes/index");
 app.use("/", index);
 const authRoutes = require("./routes/auth-routes");
 app.use("/", authRoutes(app)); // ça permet de passer app en paramètre et de renvoyer le router mais je comprends pas, lol
-const fileRouter = require("./routes/uploadRoute");
-app.use("/api", fileRouter);
+const router = require("./routes/uploadRoute");
+app.use("/api/file", router);
+const reactRouter = require("./routes/reactRoute");
+app.use("/api/route", reactRouter);
 
 module.exports = app;

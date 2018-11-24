@@ -13,7 +13,7 @@ class Upload extends Component {
     return (
       <div>
         <form
-          action="http://localhost:5000/api/upload-image"
+          action="http://localhost:5000/api/file/image"
           method="post"
           enctype="multipart/form-data"
         >

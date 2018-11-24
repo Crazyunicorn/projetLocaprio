@@ -5,7 +5,6 @@ const api = axios.create({
   // the initial part of all our backend route URLs
   baseURL: "http://localhost:5000",
   //baseURL: `${process.env.REACT_APP_SERVER_URL}/api`, ==> better
-
   withCredentials: true
   // allows axios to send cookies to the backend
 });

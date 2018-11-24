@@ -8,7 +8,9 @@ class Alextest extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      log: false,
+      userDoc: {}
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,51 +25,69 @@ class Alextest extends Component {
     event.preventDefault();
     // const { firstName, lastName, email, role, password } = this.state;
     console.log(this.state);
+    const userObject = {
+      email: this.state.email,
+      password: this.state.password
+    };
     api
-      .post("/connexion", this.state)
+      .post("/api/route/login2", userObject)
 
       .then(respond => {
+        console.log(respond);
         this.setState({
           email: "",
-          password: ""
+          password: "",
+          log: true
         });
       })
       .catch(error => console.log(error));
   }
 
   render() {
+    let logged = this.state.log;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="columns">
-            <div className="column">
-              <label>
-                Email:
+        <div id="login">
+          <div className="login-card">
+            <div className="card-title">
+              <h1>Please Sign Up</h1>
+            </div>
+
+            <div className="content">
+              <form onSubmit={this.handleSubmit}>
                 <input
-                  type="text"
+                  className="special-input"
+                  id="email"
+                  type="email"
                   name="email"
+                  title="email"
+                  placeholder="Email"
+                  required
                   value={this.state.email}
                   onChange={this.handleChange}
                 />
-              </label>
-            </div>
-          </div>
-
-          <div className="columns">
-            <div className="column">
-              <label>
-                Mot de passe :
                 <input
+                  className="special-input"
+                  id="password"
+                  type="password"
                   name="password"
+                  title="password"
+                  placeholder="Password"
+                  required
                   value={this.state.password}
                   onChange={this.handleChange}
                 />
-              </label>
+
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="btn button btn-primary"
+                />
+                <div>{logged ? "your logged" : "not logged"}</div>
+              </form>
             </div>
           </div>
-
-          <input type="submit" value="Submit" className="button" />
-        </form>
+        </div>
       </div>
     );
   }

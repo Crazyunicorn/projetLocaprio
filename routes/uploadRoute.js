@@ -7,7 +7,7 @@ router.get("/upload", (req, res, next) => {
 });
 
 router.post(
-  "/upload-image",
+  "/image",
   fileUploader.single("file"), //méthode single appelé, spécifie le type de fiche, c'est l aconfig de multer (middleware) NOMMER de la même manière en front 'file'
   (req, res, next) => {
     // multer puts all the information about the uploaded file in "req.file"
