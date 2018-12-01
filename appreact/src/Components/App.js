@@ -58,7 +58,7 @@ class App extends Component {
           <Route path="/description/:id" component={Description} />
           <Route
             exact
-            path="/login"
+            path={this.state.loggedUser.email ? "/profil" : "/login"}
             render={() =>
               !this.state.loggedUser.email ? (
                 <Login moduleUser={this.onLogin.bind(this)} />

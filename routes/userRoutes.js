@@ -4,6 +4,25 @@ const api = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
+//--------- creation compte --------- //
+
+api.post("/user", (req, res, next) => {
+  let { firstName, lastName, email, password, role } = req.body;
+  password = bcrypt.hashSync(password, 10);
+  User.create({ firstName, lastName, email, password, role })
+    .then(userDoc => {
+      // LOG IN THIS USER
+      // "req.logIn()" is a Passport method that calls "serializeUser()"
+      // (that saves the USER ID in the session)
+      req.logIn(userDoc, () => {
+        // hide "encryptedPassword" before sending the JSON (it's a security risk)
+        userDoc.encryptedPassword = undefined;
+        res.json({ userDoc });
+      });
+    })
+    .catch(err => next(err));
+});
+
 //--------- Log In --------- //
 
 api.post("/login", (req, res, next) => {
@@ -19,6 +38,7 @@ api.post("/login", (req, res, next) => {
       }
 
       const { password } = userDoc;
+
       if (!bcrypt.compareSync(originalPassword, password)) {
         next(new Error("Password is wrong. ️🤯"));
         return;
@@ -34,10 +54,12 @@ api.post("/login", (req, res, next) => {
 
 //--------- Log out --------- //
 
+//passport Setup
 api.get("/logout", function(req, res) {
   req.logout();
 });
 
+//lucas setup
 api.delete("/logout2", (req, res, next) => {
   req.logOut();
 
@@ -54,7 +76,5 @@ api.get("/checklogin", (req, res, next) => {
     res.json({ userDoc: null });
   }
 });
-
-//--------- Crea annonces--------- //
 
 module.exports = api;

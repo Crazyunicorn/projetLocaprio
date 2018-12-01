@@ -28,7 +28,7 @@ class Login extends Component {
       password: this.state.password
     };
     api
-      .post("/api/route/login2", userObject)
+      .post("/api/route/login", userObject)
 
       .then(respond => {
         let retrievedUserDoc = respond.data.userDoc;
