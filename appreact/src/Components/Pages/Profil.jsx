@@ -94,7 +94,6 @@ class Profil extends Component {
               Editer
             </a>
           </div>
-        </nav>
       </div>
     );
   }
