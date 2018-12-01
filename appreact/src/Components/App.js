@@ -5,7 +5,7 @@ import Home from "./Pages/Home.jsx";
 import Navbar from "./Elements/Navbar.jsx";
 import Footer from "./Elements/Footer.jsx";
 import Alextest from "./Pages/Alextest.jsx";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect, Link } from "react-router-dom";
 import Annonces from "./Pages/Annonces.jsx";
 import Description from "./Pages/Description.jsx";
 import Login from "./Pages/Login.jsx";
@@ -58,15 +58,28 @@ class App extends Component {
               !this.state.loggedUser.email ? (
                 <Login moduleUser={this.onLogin.bind(this)} />
               ) : (
-                <Profil loggedUser={this.state.loggedUser} />
+                <Redirect to="/profil" />
               )
             }
           />
 
-          <Route 
-            path="/profilprivloc" 
-            render={() => <Profilprivloc loggedUser={this.state.loggedUser} />
-          }/>
+
+          <Route
+            exact
+            path="/profil"
+            render={() => <Profil loggedUser={this.state.loggedUser} />}
+          />
+
+          <Route
+            exact
+            path="/profilprivloc"
+            render={() => <Profilprivloc loggedUser={this.state.loggedUser} />}
+          />
+          <Route
+            exact
+            path="/candidatures"
+            render={() => <Candidatures loggedUser={this.state.loggedUser} />}
+          />
           <Route
             path="/creadossierloc"
             render={() => <Creadossierloc user={this.state.loggedUser} />}

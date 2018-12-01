@@ -1,15 +1,41 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+function LogInNav() {
+  return (
+    <div>
+      <Link className="button is-primary" to="/signup">
+        <strong>Log out</strong>
+      </Link>
+    </div>
+  );
+}
+
+function LogOutNav() {
+  return (
+    <div>
+      <Link className="button " to="/test">
+        <strong>test</strong>
+      </Link>
+      <Link className="button is-primary" to="/signup">
+        <strong>Sign up</strong>
+      </Link>
+      <Link className="button is-light" to="/login">
+        Log in
+      </Link>
+    </div>
+  );
+}
+
 class Navbar extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      loggedUser: this.props.loggedUser
-    };
+    this.state = {};
   }
+
   render() {
+    const user = this.props.loggedUser;
     return (
       <div>
         <nav
@@ -47,19 +73,10 @@ class Navbar extends Component {
                 </div>
               </div>
             </div>
-            {this.props.loggedUser.email ? "your logged" : "not logged"}
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
-                  <Link className="button " to="/test">
-                    <strong>test</strong>
-                  </Link>
-                  <Link className="button is-primary" to="/signup">
-                    <strong>Sign up</strong>
-                  </Link>
-                  <Link className="button is-light" to="/login">
-                    Log in
-                  </Link>
+                  {user.email ? <LogInNav /> : <LogOutNav />}
                 </div>
               </div>
             </div>

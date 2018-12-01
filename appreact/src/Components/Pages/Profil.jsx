@@ -37,8 +37,11 @@ class Profil extends Component {
                   <a>Mes informations</a>
                 </li>
 
-                {}
-                <Link to="/candidatures">Candidatures reçues</Link>
+                {user.role == "Locataire" ? (
+                  <Link to="/creadossierloc">Mon dossier</Link>
+                ) : (
+                  <Link to="/candidatures">Candidatures reçues</Link>
+                )}
               </ul>
             </div>{" "}
           </div>
