@@ -32,6 +32,7 @@ class Login extends Component {
 
       .then(respond => {
         let retrievedUserDoc = respond.data.userDoc;
+        console.log(retrievedUserDoc);
         const moduleUser = this.props.moduleUser;
         moduleUser(retrievedUserDoc);
 

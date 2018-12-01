@@ -48,15 +48,12 @@ class App extends Component {
             render={() => <Alextest loggedUser={this.state.loggedUser} />}
           />
           <Route exact path="/annonces" component={Annonces} />
-
           <Route exact path="/description/:id" component={Description} />
-
           <Route exact path="/signup" component={Signup} />
-
           <Route path="/description/:id" component={Description} />
           <Route
             exact
-            path={this.state.loggedUser.email ? "/profil" : "/login"}
+            path="/login"
             render={() =>
               !this.state.loggedUser.email ? (
                 <Login moduleUser={this.onLogin.bind(this)} />
@@ -66,14 +63,12 @@ class App extends Component {
             }
           />
 
-          <Route exact path="/profil" component={Profil} />
           <Route exact path="/profilprivloc" component={Profilprivloc} />
           <Route
             path="/creadossierloc"
             render={() => <Creadossierloc user={this.state.user} />}
           />
           <Route exact path="/candidatures" component={Candidatures} />
-
           <Route
             exact
             path="/notificationproprio"
