@@ -91,7 +91,9 @@ const authRoutes = require("./routes/auth-routes");
 app.use("/", authRoutes(app)); // ça permet de passer app en paramètre et de renvoyer le router mais je comprends pas, lol
 const router = require("./routes/uploadRoute");
 app.use("/api/file", router);
-const reactRouter = require("./routes/reactRoute");
-app.use("/api/route", reactRouter);
+const userRouter = require("./routes/userRoutes");
+app.use("/api/route", userRouter);
+const accomodationRouter = require("./routes/accomodationRoutes");
+app.use("/api/route", accomodationRouter);
 
 module.exports = app;

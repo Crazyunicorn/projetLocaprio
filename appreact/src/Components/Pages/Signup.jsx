@@ -29,7 +29,7 @@ class Alextest extends Component {
     // const { firstName, lastName, email, role, password } = this.state;
     console.log(this.state);
     api
-      .post("/creacompte", this.state)
+      .post("/api/route/user", this.state)
       // {
       //   firstName,
       //   lastName,
@@ -53,38 +53,81 @@ class Alextest extends Component {
     return (
       <div>
         <div id="login">
-  <div className="login-card">
+          <div className="login-card">
+            <div className="card-title">
+              <h1>Please Sign Up</h1>
+            </div>
 
-    <div className="card-title">
-      <h1>Please Sign Up</h1>
-    </div>
+            <div className="content">
+              <form onSubmit={this.handleSubmit}>
+                <input
+                  className="special-input"
+                  id="name"
+                  type="name"
+                  name="lastName"
+                  title="name"
+                  placeholder="Name"
+                  required
+                  value={this.state.lastName}
+                  onChange={this.handleChange}
+                />
+                <input
+                  className="special-input"
+                  id="firstname"
+                  type="firstname"
+                  name="firstName"
+                  title="firstname"
+                  placeholder="Firstname"
+                  required
+                  value={this.state.firstName}
+                  onChange={this.handleChange}
+                />
+                <input
+                  className="special-input"
+                  id="email"
+                  type="email"
+                  name="email"
+                  title="email"
+                  placeholder="Email"
+                  required
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
+                <input
+                  className="special-input"
+                  id="password"
+                  type="password"
+                  name="password"
+                  title="password"
+                  placeholder="Password"
+                  required
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
 
-    <div className="content">
-    <form onSubmit={this.handleSubmit}>
-        <input className="special-input" id="name" type="name" name="lastName" title="name" placeholder="Name" required value={this.state.lastName} onChange={this.handleChange}/>
-        <input className="special-input" id="firstname" type="firstname" name="firstName" title="firstname" placeholder="Firstname" required value={this.state.firstName} onChange={this.handleChange}/>
-        <input className="special-input" id="email" type="email" name="email" title="email" placeholder="Email" required value={this.state.email} onChange={this.handleChange}/>
-        <input className="special-input" id="password" type="password" name="password" title="password" placeholder="Password" required value={this.state.password} onChange={this.handleChange}/>
-        
+                <select
+                  className="select is-rounded special-input"
+                  type="role"
+                  name="role"
+                  title="role"
+                  placeholder="Vous êtes"
+                  required
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                >
+                  <option value="Proprietaire">Proprietaire </option>
+                  <option value="Locataire"> Locataire </option>
+                </select>
 
-<select className="select is-rounded special-input"  type="role" name="role" title="role" placeholder="Vous êtes" required value={this.state.value} onChange={this.handleChange}>
-  <option value="Proprietaire">Proprietaire </option>
-  <option value="Locataire"> Locataire </option>
-  </select>
-
-
-
-
-       
-        <input type="submit" value="Submit" className="btn button btn-primary" />
-      </form>
-    </div>
-  </div>
-</div>
-
-
-          
-  
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="btn button btn-primary"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
