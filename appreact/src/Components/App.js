@@ -17,27 +17,58 @@ import Notificationproprio from "./Pages/Notificationproprio";
 import Candidatures from "./Pages/Candidatures";
 
 class App extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {user: {}}
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedUser: {}
+    };
   }
 
-  updateUser(user) {
-    this.setState({user})
+  onLogin(user) {
+    console.log("hi from onLogin in app.js");
+    this.setState({
+      loggedUser: user
+    });
   }
+
+
   render() {
     return (
       <div>
         <Switch>
-          <Route path="/" component={Navbar} />
+          <Route
+            path="/"
+            render={() => <Navbar loggedUser={this.state.loggedUser} />}
+          />
         </Switch>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/test" component={Alextest} />
+          <Route
+            exact
+            path="/test"
+            render={() => <Alextest loggedUser={this.state.loggedUser} />}
+          />
           <Route exact path="/annonces" component={Annonces} />
+
           <Route exact path="/description/:id" component={Description} />
-          <Route exact path="/login"  render={()=><Login updateUser={this.updateUser.bind(this)}></Login>} />
+         
           <Route exact path="/signup" render={()=><Signup updateUser={this.updateUser.bind(this)}></Signup>} />
+
+          <Route path="/description/:id" component={Description} />
+          <Route
+            exact
+            path="/login"
+            render={() =>
+              !this.state.loggedUser.email ? (
+                <Login moduleUser={this.onLogin.bind(this)} />
+              ) : (
+                <Profil loggedUser={this.state.loggedUser} />
+              )
+            }
+          />
+        
+
           <Route exact path="/profil" component={Profil} />
           <Route exact path="/profilprivloc" component={Profilprivloc} />
           <Route path="/creadossierloc" render={()=> <Creadossierloc user={this.state.user}></Creadossierloc>} />

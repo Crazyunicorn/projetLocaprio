@@ -3,35 +3,35 @@ import axios from "axios";
 import Card from "../Elements/Card";
 import { Link } from "react-router-dom";
 
-
 class Profil extends Component {
   constructor() {
     super();
-    this.state = { myUser: {} };
+    this.state = {};
   }
 
+  //
+  // getOneUser = () => {
+  //   axios
+  //     .get(
+  //       "http://localhost:5000/api/creacompte/"
+  //     )
+  //     .then(responseFromApi => {
+  //       console.log(responseFromApi.data);
+  //       this.setState({
+  //         myUser: responseFromApi.data.myUser
+  //       });
+  //     });
+  // };
 
-  getOneUser = () => {
-    axios
-      .get(
-        "http://localhost:5000/api/creacompte/" 
-      )
-      .then(responseFromApi => {
-        console.log(responseFromApi.data);
-        this.setState({
-          myUser: responseFromApi.data.myUser
-        });
-      });
-  };
-
-  componentDidMount () {
-    this.getOneUser();
-  }
+  // componentDidMount () {
+  //   this.getOneUser();
+  // }
 
   render() {
+    const user = this.props.loggedUser;
     return (
-
       <div>
+
 <section className="hero is-primary">
   <div className="hero-body">
     <div className="container">
@@ -85,10 +85,18 @@ class Profil extends Component {
 </nav>
 
 
-      </div>
-      
 
-    ); 
+          <div className="panel-block">
+            <a
+              href="/editProfil"
+              className="button is-link is-outlined btnform"
+            >
+              Editer
+            </a>
+          </div>
+        </nav>
+      </div>
+    );
   }
 }
 
