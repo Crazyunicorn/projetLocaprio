@@ -11,6 +11,14 @@ class Upload extends Component {
     };
   }
 
+  handleSubmit = (event) => {
+    console.log(event)
+    event.preventDefault()
+    this.setState({
+      dossierOK: true
+    })
+  }
+
   render() {
     if(this.state.dossierOK) {
       return <Redirect to='/creadossierloc/complet'></Redirect>
@@ -18,6 +26,7 @@ class Upload extends Component {
     return (
       <div>
         <form
+          onSubmit={this.handleSubmit}
           action="http://localhost:5000/api/file/image"
           method="post"
           enctype="multipart/form-data"
@@ -75,7 +84,7 @@ class Upload extends Component {
     </span>
   </label>
 </div>
-<input className="button is-primary"type="submit" value="Créer" onClick={() => this.setState({dossierOK: true})}/> 
+<input className="button is-primary"type="submit" value="Créer" /> 
 </form>  
       </div>
     );

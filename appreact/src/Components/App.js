@@ -63,12 +63,15 @@ class App extends Component {
             }
           />
 
-          <Route exact path="/profilprivloc" component={Profilprivloc} />
+          <Route 
+            path="/profilprivloc" 
+            render={() => <Profilprivloc loggedUser={this.state.loggedUser} />
+          }/>
           <Route
             path="/creadossierloc"
-            render={() => <Creadossierloc user={this.state.user} />}
+            render={() => <Creadossierloc user={this.state.loggedUser} />}
           />
-          <Route exact path="/candidatures" component={Candidatures} />
+          <Route path="/candidatures" component={Candidatures} />
           <Route
             exact
             path="/notificationproprio"

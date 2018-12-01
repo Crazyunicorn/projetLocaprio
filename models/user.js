@@ -12,6 +12,10 @@ const userSchema = new Schema({
   password : String,
   picture : String,
   image : String,
+  dossierIsOk: {
+    type: Boolean,
+    default: false
+  },
   dossier: {
     carteid: String,
     bulletinssalaire: String,

@@ -73,11 +73,7 @@ class Profil extends Component {
           </div>
         </nav>
 
-        <div className="panel-block">
-          <a href="/editProfil" className="button is-link is-outlined btnform">
-            Editer
-          </a>
-        </div>
+       
       </div>
     );
   }

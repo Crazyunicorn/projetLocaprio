@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Card from "../Elements/Card";
 import Creadossierloc from '../Pages/Creadossierloc';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 
 
@@ -31,6 +31,9 @@ class Profilprivloc extends Component {
   }
 
   render() {
+    if (this.props.loggedUser.dossier) {
+      return <Redirect to="/profilprivloc/complet"></Redirect>
+    }
     return (
 
       <div>

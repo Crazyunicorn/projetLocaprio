@@ -6,9 +6,6 @@ import { Switch, Route } from 'react-router';
 
 class Creadossierloc extends Component {
   render() {
-    if (this.props.user.dossier) {
-      return <Redirect to="/creadossierloc/complet"></Redirect>
-    }
     return (
       <div>
         
@@ -37,10 +34,7 @@ class Creadossierloc extends Component {
 </div>
 <div>
 
-  <Switch>
-  <Route exact path="/creadossierloc/complet" component={Dossierloccomplet} />
-  <Route path="/creadossierloc" exact component={Upload} />
-  </Switch>
+ { this.props.user.dossier ? <Dossierloccomplet></Dossierloccomplet> : <Upload></Upload>}
 
 </div>
 
