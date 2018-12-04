@@ -3,6 +3,7 @@ const passport = require("passport");
 const api = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
+const ensureLogin = require("connect-ensure-login");
 
 //--------- creation compte --------- //
 
@@ -74,6 +75,29 @@ api.get("/checklogin", (req, res, next) => {
     res.json({ userDoc: req.user });
   } else {
     res.json({ userDoc: null });
+  }
+});
+
+//--------- update_dossier --------- //
+
+api.post("/update_dossier/:id", 
+(req, res, next) => {
+  console.log("elgsk",req.user)
+  if (req.params.id) {
+    User.update({_id: req.params.id}, {
+      $set: { 
+        dossier: {
+          carteid: req.body.carteid,
+          bulletinssalaire: req.body.bulletinssalaire,
+          justificatifdomicile: req.body.justificatifdomicile,
+        }
+      }
+    })
+    .then(usr=> {
+      res.json({ user: usr });
+    })
+  } else {
+    res.status(500).json({ userDoc: null });
   }
 });
 

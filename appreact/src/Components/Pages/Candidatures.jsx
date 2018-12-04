@@ -1,10 +1,47 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 
 class Candidatures extends Component {
   render() {
     return(
 <div>
+<section className="hero is-primary">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="title">
+                <figure className="image is-128x128">
+                  <img
+                    className="is-rounded"
+                    src="/images/avatarproprio.png"
+                    alt="Placeholder image"
+                  />
+                </figure>
+              </h1>
+            </div>
+          </div>
+        </section>
+       
+       
+        <nav className="panel" id="crea3">
+          <div className="panel-heading">
+            <div className="tabs">
+              <ul>
+                <li className="is-not-active">
+                  <a>Mes informations</a>
+                </li>
+
+
+                <li className="is-active">
+                  <a>Candidatures reçues</a>
+                </li>
+        
+                  
+              </ul>
+            </div>
+          </div>
+          </nav>
+
 <article className="media">
   <figure className="media-left">
   &nbsp;&nbsp;&nbsp;
@@ -79,6 +116,7 @@ Bonjour, n'hésitez pas à jeter un oeil à mon dossier de candidature...
   </div>
 </article>
 </div>
+
     );
   }
 }

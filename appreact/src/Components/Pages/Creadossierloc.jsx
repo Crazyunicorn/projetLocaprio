@@ -34,7 +34,7 @@ class Creadossierloc extends Component {
 </div>
 <div>
 
- { this.props.user.dossier ? <Dossierloccomplet></Dossierloccomplet> : <Upload></Upload>}
+ { this.props.user.dossier ? <Dossierloccomplet></Dossierloccomplet> : <Upload userid={this.props.user._id}></Upload>}
 
 </div>
 
