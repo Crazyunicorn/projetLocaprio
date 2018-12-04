@@ -83,6 +83,7 @@
   width: 24rem;
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.11);
 }
+
 #login .login-card .card-title {
   background-color: #00b89c;
   padding: 2rem;
@@ -188,5 +189,93 @@ textarea:focus,
 button:focus {
   outline: none;
 }
+/*# form creation annonce */
+#annonce {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #f7f7f7;
+}
+#annonce .annonce-card {
+  background: #fff;
+  width: 74rem;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.11);
+}
 
+#annonce .annonce-card .card-title {
+  background-color: #00b89c;
+  padding: 2rem;
+}
+#annonce .annonce-card .card-title h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+}
+#annonce .annonce-card .content {
+  padding: 3rem 2.5rem 5rem;
+}
+#annonce .annonce-card .special-input,
+#annonce .annonce-card .sepc2 {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 1.75rem;
+  padding: 0.25rem 0;
+  border: none;
+  border-bottom: 1px solid #dbdbdb;
+  transition: all 0.5s;
+}
+#annonce .annonce-card .special-input:hover,
+#annonce .annonce-card .sepc2:hover {
+  border-color: #7a7a7a;
+}
+#annonce .annonce-card .special-input:active,
+#annonce .annonce-card .special-input:focus,
+#annonce .annonce-card .sepc2:active,
+#annonce .annonce-card .sepc2:focus {
+  border-color: #00d1b2;
+}
+#annonce .annonce-card .checkbox {
+  color: #b5b5b5;
+  font-size: 0.8rem;
+}
+#annonce .annonce-card .checkbox span {
+  margin-left: 0.5rem;
+}
+#annonce .annonce-card a {
+  font-size: 0.8rem;
+}
+#annonce .annonce-card .options {
+  color: #b5b5b5;
+  margin-bottom: 1.5rem;
+}
+#annonce .annonce-card button {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #00d1b2;
+  border-radius: 4rem;
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 2px solid #00d1b2;
+  padding: 0.9rem 0 1.1rem;
+  transition: color 0.5s, border-color 0.5s;
+}
+#annonce .annonce-card button:hover,
+#annonce .annonce-card button:focus {
+  color: #009e86;
+  border-color: #009e86;
+}
+#annonce .annonce-card button:active {
+  transform: translateY(1px);
+}
+
+/*# Page profil */
+#wrapperProfil {
+  margin: 2% 15%;
+}
+#profil {
+  margin-bottom: 0px !important;
+}
 /*# sourceMappingURL=style.css.map */

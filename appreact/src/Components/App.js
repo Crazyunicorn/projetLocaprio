@@ -11,10 +11,12 @@ import Description from "./Pages/Description.jsx";
 import Login from "./Pages/Login.jsx";
 import Signup from "./Pages/Signup";
 import Profil from "./Pages/Profil";
+import CreationAppart from "./Pages/CreationAppart";
 import Profilprivloc from "./Pages/Profilprivloc";
 import Creadossierloc from "./Pages/Creadossierloc";
 import Notificationproprio from "./Pages/Notificationproprio";
 import Candidatures from "./Pages/Candidatures";
+import api from "./api.js";
 
 class App extends Component {
   constructor(props) {
@@ -31,13 +33,28 @@ class App extends Component {
     });
   }
 
+  logout = () => {
+    console.log("logout");
+    api
+      .delete("api/route/logout")
+      .then(() => {
+        this.setState({ loggedUser: {} });
+      })
+      .catch(err => {
+        console.log(err);
+        alert("Sorry! Something went wrong. 💩");
+      });
+  };
+
   render() {
     return (
       <div>
         <Switch>
           <Route
             path="/"
-            render={() => <Navbar loggedUser={this.state.loggedUser} />}
+            render={() => (
+              <Navbar logout={this.logout} loggedUser={this.state.loggedUser} />
+            )}
           />
         </Switch>
         <Switch>
@@ -58,11 +75,10 @@ class App extends Component {
               !this.state.loggedUser.email ? (
                 <Login moduleUser={this.onLogin.bind(this)} />
               ) : (
-                <Redirect to="/profil" />
+                <Redirect to="/" />
               )
             }
           />
-
 
           <Route
             exact
@@ -79,6 +95,11 @@ class App extends Component {
             exact
             path="/candidatures"
             render={() => <Candidatures loggedUser={this.state.loggedUser} />}
+          />
+          <Route
+            exact
+            path="/creation-annonce"
+            render={() => <CreationAppart loggedUser={this.state.loggedUser} />}
           />
           <Route
             path="/creadossierloc"

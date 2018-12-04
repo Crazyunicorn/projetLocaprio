@@ -5,43 +5,6 @@ const User = require("../models/user");
 const myAppart = require("../models/accomodation");
 const bcrypt = require("bcrypt");
 
-// api.post("/user", (req, res, next) => {
-//   //console.log(req.body);
-//   const { firstName, lastName, email, password, role } = req.body; // ne pas oublier les paramères 'name="firstName"' dans les input des forms pour le req.body.
-//   const newUser = new myUser({ firstName, lastName, email, password, role }); // cour mongoose express create - update document + penser aux id dans les forms
-//
-//   if (firstName === "" || lastName === "" || email === "" || password === "") {
-//     res.render("user", {});
-//     return;
-//   }
-//
-//   myUser.findOne({ email }, "email", (err, user) => {
-//     if (user !== null) {
-//       res.render("user", {});
-//       return;
-//     }
-//     const salt = bcrypt.genSaltSync(bcryptSalt);
-//     const hashPass = bcrypt.hashSync(password, salt);
-//     const newUser = new myUser({
-//       email,
-//       firstName,
-//       lastName,
-//       role,
-//       password: hashPass
-//     });
-//     newUser.save(err => {
-//       if (err) {
-//         res.render("user", { message: "big problem" });
-//       } else {
-//         res.redirect("profilpro");
-//       }
-//       /*  else {
-//         res.redirect("admin")
-//       }*/
-//     });
-//   });
-// });
-
 // ----- Creation annonce -----
 
 api.post("/annonce", (req, res, next) => {
