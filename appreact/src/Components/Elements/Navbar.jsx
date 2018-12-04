@@ -17,7 +17,7 @@ function LogInNav(props) {
             Messages
           </Link>
           <Link className="navbar-item" to="/test">
-            Mes appartements
+            Mes favoris
           </Link>
 
           <hr className="navbar-divider" />
@@ -33,6 +33,7 @@ function LogInNav(props) {
 function LogOutNav() {
   return (
     <div>
+       
       <Link className="button is-primary" to="/signup">
         <strong>Sign up</strong>
       </Link>
@@ -69,7 +70,7 @@ class Navbar extends Component {
         >
           <div className="navbar-brand">
             <Link to="/">
-              <img className="logohouse" src="/images/house.png" alt="" />
+              <img className="logohouse" src="/images/homewhite.png" alt="" />
             </Link>
 
             <a
@@ -99,6 +100,9 @@ class Navbar extends Component {
             </div>
             <div className="navbar-end">
               <div className="navbar-item">
+              <Link className="navbar-link" to="/annonces">
+        Appartements
+      </Link>
                 <div className="buttons">
                   {!userIsLogged ? (
                     <LogOutNav />
