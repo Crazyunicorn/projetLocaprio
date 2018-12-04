@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import api from "../api.js";
 
-class Alextest extends Component {
+class Signup extends Component {
   constructor(props) {
     super(props);
 
@@ -134,4 +134,4 @@ class Alextest extends Component {
   }
 }
 
-export default Alextest;
+export default Signup;

@@ -16,6 +16,7 @@ class Upload extends Component {
     };
   }
 
+
   loadFile = (event, name) => {
     console.log(event)
     event.preventDefault()
@@ -54,12 +55,14 @@ class Upload extends Component {
     })
   }
 
+
   render() {
-    if(this.state.dossierOK) {
-      return <Redirect to='/creadossierloc/complet'></Redirect>
+    if (this.state.dossierOK) {
+      return <Redirect to="/creadossierloc/complet" />;
     }
     return (
       <div>
+
 
         &nbsp;&nbsp;&nbsp;
       <div className="file has-name is-fullwidth">
@@ -115,6 +118,7 @@ class Upload extends Component {
         </label>
       </div>
       <input className="button is-primary"type="submit" value="Créer" onClick={() => this.handleSubmit()}/> 
+
 
       </div>
     );

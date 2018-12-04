@@ -1,12 +1,31 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-function LogInNav() {
+function LogInNav(props) {
+  const user = props.loggedUser;
+  const logout = props.logout;
   return (
     <div>
-      <Link className="button is-primary" to="/signup">
-        <strong>Log out</strong>
-      </Link>
+      <div className="navbar-item has-dropdown  is-hoverable">
+        <a className="navbar-link">{user.firstName}</a>
+
+        <div className="navbar-dropdown is-right">
+          <Link className="navbar-item" to="/profil">
+            Profil
+          </Link>
+          <Link className="navbar-item" to="/test">
+            Messages
+          </Link>
+          <Link className="navbar-item" to="/test">
+            Mes appartements
+          </Link>
+
+          <hr className="navbar-divider" />
+          <Link onClick={logout} className="navbar-item" to="/">
+            <strong>Log out</strong>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
@@ -14,9 +33,6 @@ function LogInNav() {
 function LogOutNav() {
   return (
     <div>
-      <Link className="button " to="/test">
-        <strong>test</strong>
-      </Link>
       <Link className="button is-primary" to="/signup">
         <strong>Sign up</strong>
       </Link>
@@ -35,7 +51,15 @@ class Navbar extends Component {
   }
 
   render() {
-    const user = this.props.loggedUser;
+    let user = this.props.loggedUser;
+    let userIsLogged;
+
+    userIsLogged =
+      Object.keys(this.props.loggedUser).length === 0 ? false : true;
+
+    console.log(Object.keys(this.props.loggedUser).length);
+    console.log(user, userIsLogged);
+
     return (
       <div>
         <nav
@@ -44,9 +68,9 @@ class Navbar extends Component {
           aria-label="main navigation"
         >
           <div className="navbar-brand">
-            <a href="http://localhost:3000">
+            <Link to="/">
               <img className="logohouse" src="/images/house.png" alt="" />
-            </a>
+            </Link>
 
             <a
               role="button"
@@ -76,7 +100,11 @@ class Navbar extends Component {
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
-                  {user.email ? <LogInNav /> : <LogOutNav />}
+                  {!userIsLogged ? (
+                    <LogOutNav />
+                  ) : (
+                    <LogInNav logout={this.props.logout} loggedUser={user} />
+                  )}
                 </div>
               </div>
             </div>

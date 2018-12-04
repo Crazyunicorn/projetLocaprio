@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router";
 import Upload from "../Elements/Upload";
 import Dossierloccomplet from "../Elements/Dossierloccomplet";
-import { Switch, Route } from 'react-router';
+import Navprofil from "../Elements/navProfil";
 
 class Creadossierloc extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
+    const user = this.props.loggedUser;
     return (
       <div>
-        
         <section className="hero is-primary">
+
   <div className="hero-body">
     <div className="container">
       <h1 className="title">
@@ -39,9 +45,16 @@ class Creadossierloc extends Component {
 </div>
 
   </nav>
+
       </div>
     );
   }
 }
 
 export default Creadossierloc;
+// <nav className="panel" id="crea3">
+//   <div className="panel-heading">
+//     <div className="tabs" />
+//   </div>
+//   <div />
+// </nav>

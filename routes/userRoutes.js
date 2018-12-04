@@ -55,13 +55,8 @@ api.post("/login", (req, res, next) => {
 
 //--------- Log out --------- //
 
-//passport Setup
-api.get("/logout", function(req, res) {
-  req.logout();
-});
-
 //lucas setup
-api.delete("/logout2", (req, res, next) => {
+api.delete("/logout", (req, res, next) => {
   req.logOut();
 
   res.json({ userDoc: null });
