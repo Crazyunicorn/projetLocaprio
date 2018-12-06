@@ -4,24 +4,29 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt"); //à verifié
 const bcryptSalt = 10;
 
-
-const userSchema = new Schema({
-  firstName : String,
-  lastName: String,
-  email : String,
-  password : String,
-  picture : String,
-  image : String,
-  dossier: {
-    carteid: String,
-    bulletinssalaire: String,
-    justificatifdomicile: String,
-  },
-  role: {
+const userSchema = new Schema(
+  {
+    firstName: String,
+    lastName: String,
+    email: String,
+    password: String,
+    picture: String,
+    image: String,
+    dossierIsOk: {
+      type: Boolean,
+      default: false
+    },
+    dossier: {
+      carteid: String,
+      bulletinssalaire: String,
+      justificatifdomicile: String
+    },
+    role: {
       type: String,
       enum: ["Locataire", "Proprietaire", "Admin"]
-  }
-    },
+    }
+  },
+
   {
     timestamps: {
       createdAt: "created_at",

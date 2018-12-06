@@ -14,16 +14,13 @@ class Profil extends Component {
     const user = this.props.loggedUser;
     return (
       <div>
-        <section className="hero is-primary">
+        <section className="hero is-primary ">
           <div className="hero-body">
             <div className="container">
-              <figure className="image is-128x128">
-                <img
-                  className="is-rounded"
-                  src="/images/avatarproprio.png"
-                  alt="Placeholder image"
-                />
-              </figure>
+              <h1 className="title">Mon Profil. </h1>
+              <h2 className="subtitle">
+                Visualisez toutes vos informations en un instant.
+              </h2>
             </div>
           </div>
         </section>
@@ -58,3 +55,11 @@ class Profil extends Component {
 }
 
 export default Profil;
+//
+// <figure className="image is-128x128">
+//   <img
+//     className="is-rounded"
+//     src="/images/avatarproprio.png"
+//     alt="Placeholder image"
+//   />
+// </figure>

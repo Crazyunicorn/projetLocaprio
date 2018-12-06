@@ -47,12 +47,18 @@ class CreationAppart extends Component {
   render() {
     return (
       <div>
+        <section className="hero is-primary">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="title">Créez votre annonce. </h1>
+              <h2 className="subtitle">
+                Mettez votre bien à la location en quelques clics
+              </h2>
+            </div>
+          </div>
+        </section>
         <div id="annonce">
           <div className="annonce-card ">
-            <div className="card-title">
-              <h1>Créez votre annonce. </h1>
-            </div>
-
             <div className="content">
               <form onSubmit={this.handleSubmit}>
                 <div className="columns">

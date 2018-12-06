@@ -13,7 +13,7 @@ function Navloc(props) {
           <Link to="/creadossierloc">Mon dossier</Link>
         </li>
         <li>
-          <Link to="/creadossierloc">Mes Garants</Link>
+          <Link to="/mes-garants">Mes Garants</Link>
         </li>
       </ul>
     </div>
@@ -50,8 +50,8 @@ class Navprofil extends Component {
 
     return (
       <div>
-        <div className="panel-heading">
-          <div className="tabs">
+        <div className="panel-heading" id="navProfil">
+          <div className="tabs" id="navtab">
             {user.role == "Locataire" ? <Navloc /> : <Navpro />}
           </div>
         </div>

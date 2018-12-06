@@ -31,14 +31,11 @@ class Signup extends Component {
     console.log(this.state);
     api
       .post("/api/route/user", this.state)
-      // {
-      //   firstName,
-      //   lastName,
-      //   email,
-      //   role,
-      //   password
-      // }
+
       .then(respond => {
+        let retrievedUserDoc = respond.data.userDoc;
+        const moduleUser = this.props.moduleUser;
+        moduleUser(retrievedUserDoc);
         this.setState({
           firstName: "",
           lastName: "",

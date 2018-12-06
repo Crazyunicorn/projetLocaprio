@@ -1,3 +1,18 @@
+body {
+  background-color: #f7f7f7 !important;
+}
+
+.hero {
+  margin-top: 5% !important;
+}
+
+#item {
+  color: #fff;
+  margin-top: 7px !important;
+  margin-left: -6% !important;
+  margin-right: 6% !important;
+}
+
 .wrapper {
   display: flex;
   width: 50%;
@@ -37,7 +52,7 @@
 }
 
 .logohouse {
-  width: 7%;
+  width: 5%;
   margin-left: 2%;
   margin-top: 1%;
   padding: 0;
@@ -274,8 +289,30 @@ button:focus {
 /*# Page profil */
 #wrapperProfil {
   margin: 2% 15%;
+  background-color: #fff !important;
 }
 #profil {
   margin-bottom: 0px !important;
+}
+#wrapperDossier {
+  margin: 2% 15%;
+  background-color: #fff !important;
+}
+#wrapperGarant {
+  margin: 2% 15%;
+  background-color: #fff !important;
+}
+
+.cardGarant {
+  padding: 5% 10% 4% 4% !important;
+  text-align: justify;
+}
+
+#navProfil {
+  background-color: #3c596a !important;
+}
+#navtab a {
+  color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
 }
 /*# sourceMappingURL=style.css.map */

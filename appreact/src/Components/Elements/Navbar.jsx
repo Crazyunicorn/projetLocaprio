@@ -5,26 +5,24 @@ function LogInNav(props) {
   const user = props.loggedUser;
   const logout = props.logout;
   return (
-    <div>
-      <div className="navbar-item has-dropdown  is-hoverable">
-        <a className="navbar-link">{user.firstName}</a>
+    <div className="navbar-item has-dropdown is-hoverable">
+      <a className="navbar-link">{user.firstName}</a>
 
-        <div className="navbar-dropdown is-right">
-          <Link className="navbar-item" to="/profil">
-            Profil
-          </Link>
-          <Link className="navbar-item" to="/test">
-            Messages
-          </Link>
-          <Link className="navbar-item" to="/test">
-            Mes favoris
-          </Link>
+      <div className="navbar-dropdown is-right">
+        <Link className="navbar-item" to="/profil">
+          Profil
+        </Link>
+        <Link className="navbar-item" to="/test">
+          Messages
+        </Link>
+        <Link className="navbar-item" to="/test">
+          Mes favoris
+        </Link>
 
-          <hr className="navbar-divider" />
-          <Link onClick={logout} className="navbar-item" to="/">
-            <strong>Log out</strong>
-          </Link>
-        </div>
+        <hr className="navbar-divider" />
+        <Link onClick={logout} className="navbar-item" to="/">
+          <strong>Log out</strong>
+        </Link>
       </div>
     </div>
   );
@@ -33,7 +31,6 @@ function LogInNav(props) {
 function LogOutNav() {
   return (
     <div>
-       
       <Link className="button is-primary" to="/signup">
         <strong>Sign up</strong>
       </Link>
@@ -64,7 +61,7 @@ class Navbar extends Component {
     return (
       <div>
         <nav
-          className="navbar is-dark "
+          className="navbar is-fixed-top is-dark "
           role="navigation"
           aria-label="main navigation"
         >
@@ -100,9 +97,9 @@ class Navbar extends Component {
             </div>
             <div className="navbar-end">
               <div className="navbar-item">
-              <Link className="navbar-link" to="/annonces">
-        Appartements
-      </Link>
+                <Link id="item" to="/annonces">
+                  Appartements
+                </Link>
                 <div className="buttons">
                   {!userIsLogged ? (
                     <LogOutNav />

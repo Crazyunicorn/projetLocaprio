@@ -15,37 +15,42 @@ class Creadossierloc extends Component {
     return (
       <div>
         <section className="hero is-primary">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="title">Mon dossier. </h1>
+              <h2 className="subtitle">
+                Préparez vos justificatifs pour louer rapidement un bien.
+              </h2>
+            </div>
+          </div>
+        </section>
 
-  <div className="hero-body">
-    <div className="container">
-      <h1 className="title">
-      <figure class="image is-128x128">
-      <img class="is-rounded" src="/images/avatarloc.png" alt="Placeholder image"/>
-      </figure>      
-      </h1>
-    </div>
-  </div>
-</section>
+        <nav className="panel" id="crea3">
+          <div id="wrapperDossier">
+            <Navprofil loggedUser={user} />
+            <div className="columns">
+              <div className="cardGarant column">
+                {user.dossier ? (
+                  <Dossierloccomplet />
+                ) : (
+                  <Upload userid={user._id} />
+                )}
+              </div>
 
-  <nav className="panel" id="crea3">
-    <div className="panel-heading">
-    <div className="tabs">
-    <ul>
-    <Link to="/profilprivloc">
-    Mes informations
-    </Link>
-    <li className="is-active"><a>Dossier de candidature</a></li>
-  </ul>
-</div>    
-</div>
-<div>
-
- { this.props.user.dossier ? <Dossierloccomplet></Dossierloccomplet> : <Upload userid={this.props.user._id}></Upload>}
-
-</div>
-
-  </nav>
-
+              <div className="cardGarant column">
+                <h2>
+                  <strong>Mes Pièces</strong>
+                </h2>
+                <p>
+                  Vous rendez accessibles vos justificatifs à un propriètaire
+                  dès que vous candidatez à un logement afin de gagner du temps
+                  sans prendre le risque de transmettre votre dossier à des fins
+                  frauduleuses.
+                </p>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
     );
   }

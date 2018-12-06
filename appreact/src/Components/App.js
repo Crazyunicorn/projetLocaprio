@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./Pages/Home.jsx";
 import Navbar from "./Elements/Navbar.jsx";
 import Footer from "./Elements/Footer.jsx";
+import UploadGarant from "./Elements/UploadGarant.jsx";
 import Alextest from "./Pages/Alextest.jsx";
 import { Switch, Route, Redirect, Link } from "react-router-dom";
 import Annonces from "./Pages/Annonces.jsx";
@@ -66,7 +67,17 @@ class App extends Component {
           />
           <Route exact path="/annonces" component={Annonces} />
           <Route exact path="/description/:id" component={Description} />
-          <Route exact path="/signup" component={Signup} />
+          <Route
+            exact
+            path="/signup"
+            render={() =>
+              !this.state.loggedUser.email ? (
+                <Signup moduleUser={this.onLogin.bind(this)} />
+              ) : (
+                <Redirect to="/profil" />
+              )
+            }
+          />
           <Route path="/description/:id" component={Description} />
           <Route
             exact
@@ -75,17 +86,15 @@ class App extends Component {
               !this.state.loggedUser.email ? (
                 <Login moduleUser={this.onLogin.bind(this)} />
               ) : (
-                <Redirect to="/" />
+                <Redirect to="/annonces" />
               )
             }
           />
-
           <Route
             exact
             path="/profil"
             render={() => <Profil loggedUser={this.state.loggedUser} />}
           />
-
           <Route
             exact
             path="/profilprivloc"
@@ -102,8 +111,12 @@ class App extends Component {
             render={() => <CreationAppart loggedUser={this.state.loggedUser} />}
           />
           <Route
+            path="/mes-garants"
+            render={() => <UploadGarant loggedUser={this.state.loggedUser} />}
+          />
+          <Route
             path="/creadossierloc"
-            render={() => <Creadossierloc user={this.state.loggedUser} />}
+            render={() => <Creadossierloc loggedUser={this.state.loggedUser} />}
           />
           <Route path="/candidatures" component={Candidatures} />
           <Route
