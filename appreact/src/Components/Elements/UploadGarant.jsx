@@ -75,7 +75,7 @@ class UploadGarant extends Component {
             </div>
           </div>
         </section>
-        <div id="wrapperGarant">
+        <div className="wrapper2">
           <nav id="profil">
             <Navprofil loggedUser={user} />
           </nav>
@@ -195,8 +195,7 @@ class UploadGarant extends Component {
                 </label>
               </div>
             </div>
-          </div>{" "}
-          <br />
+          </div>
           <input
             className="button is-primary"
             type="submit"

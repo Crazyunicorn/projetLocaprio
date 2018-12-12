@@ -24,12 +24,13 @@ class Creadossierloc extends Component {
             </div>
           </div>
         </section>
-
-        <nav className="panel" id="crea3">
-          <div id="wrapperDossier">
+        <section className="wrapper2">
+          <nav className="panel" id="crea3">
             <Navprofil loggedUser={user} />
             <div className="columns">
               <div className="cardGarant column">
+                <h2>Créez mon dossier de candidature</h2>
+                <br />
                 {user.dossier ? (
                   <Dossierloccomplet />
                 ) : (
@@ -49,8 +50,8 @@ class Creadossierloc extends Component {
                 </p>
               </div>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </section>
       </div>
     );
   }

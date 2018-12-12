@@ -1,9 +1,35 @@
 body {
   background-color: #f7f7f7 !important;
+  margin-top: 4% !important;
 }
 
+footer {
+  color: #fff;
+  background-color: #3c596a !important;
+  padding-left: 15% !important;
+}
+
+footer h2 {
+  color: #fff !important;
+}
+.footerCss {
+  padding: 15% !important;
+}
 .hero {
-  margin-top: 5% !important;
+  margin-top: 0% !important;
+}
+
+.media {
+  padding: 0 2%;
+}
+
+.homecss {
+  padding: 8% !important;
+}
+
+.wrapperHome {
+  background-color: #fff;
+  margin: 2% 0 0 0 !important;
 }
 
 #item {
@@ -90,7 +116,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 70vh;
   background: #f7f7f7;
 }
 #login .login-card {
@@ -209,7 +235,6 @@ button:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   background: #f7f7f7;
 }
 #annonce .annonce-card {
@@ -294,11 +319,7 @@ button:focus {
 #profil {
   margin-bottom: 0px !important;
 }
-#wrapperDossier {
-  margin: 2% 15%;
-  background-color: #fff !important;
-}
-#wrapperGarant {
+.wrapper2 {
   margin: 2% 15%;
   background-color: #fff !important;
 }

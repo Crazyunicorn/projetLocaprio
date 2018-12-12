@@ -55,44 +55,6 @@ class Annonces extends Component {
                     //<h1>{appart.description}/</h1>
                   );
                 })}
-
-                <div className="">
-                  <nav
-                    className="pagination"
-                    role="navigation"
-                    aria-label="pagination"
-                  >
-                    <a
-                      className="pagination-previous"
-                      title="This is the first page"
-                      disabled
-                    >
-                      Précédent
-                    </a>
-                    <a className="pagination-next">Suivant</a>
-                    <ul className="pagination-list">
-                      <li>
-                        <a
-                          className="pagination-link is-current"
-                          aria-label="Page 1"
-                          aria-current="page"
-                        >
-                          1
-                        </a>
-                      </li>
-                      <li>
-                        <a className="pagination-link" aria-label="Goto page 2">
-                          2
-                        </a>
-                      </li>
-                      <li>
-                        <a className="pagination-link" aria-label="Goto page 3">
-                          3
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
               </div>
             </div>
           </div>
@@ -103,3 +65,40 @@ class Annonces extends Component {
 }
 
 export default Annonces;
+
+// <nav
+//   className="pagination"
+//   role="navigation"
+//   aria-label="pagination"
+// >
+//   <a
+//     className="pagination-previous"
+//     title="This is the first page"
+//     disabled
+//   >
+//     Précédent
+//   </a>
+//   <a className="pagination-next">Suivant</a>
+//   <ul className="pagination-list">
+//     <li>
+//       <a
+//         className="pagination-link is-current"
+//         aria-label="Page 1"
+//         aria-current="page"
+//       >
+//         1
+//       </a>
+//     </li>
+//     <li>
+//       <a className="pagination-link" aria-label="Goto page 2">
+//         2
+//       </a>
+//     </li>
+//     <li>
+//       <a className="pagination-link" aria-label="Goto page 3">
+//         3
+//       </a>
+//     </li>
+//   </ul>
+// </nav>
+//
